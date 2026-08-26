@@ -1,0 +1,15 @@
+{
+  "source": "AlphaFold DB AF-O60566-F1 model version 6",
+  "source_url": "https://alphafold.ebi.ac.uk/files/AF-O60566-F1-model_v6.pdb",
+  "model_file_sha256": "684e43160c431c4a30f7ab2c6b66c2a73ae1c50ef7561fa637dbb3ffe4dcd49f",
+  "residue_number": 1002,
+  "residue_name": "ASN",
+  "mean_plddt": 91.06,
+  "predicted_side_chain_contacts_within_3.2_angstrom": [
+    {"target_atom": "OD1", "other_residue": "TRP978", "other_atom": "N", "distance_angstrom": 2.825},
+    {"target_atom": "ND2", "other_residue": "VAL998", "other_atom": "O", "distance_angstrom": 2.827},
+    {"target_atom": "ND2", "other_residue": "TRP978", "other_atom": "O", "distance_angstrom": 2.948}
+  ],
+  "interpretation_limit": "Predicted structure is hypothesis-generating and cannot establish pathogenicity, stability, drug binding, or clinical effect."
+}
+

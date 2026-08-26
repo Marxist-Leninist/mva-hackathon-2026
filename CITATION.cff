@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this workflow or report, please cite it and the MVA Hackathon dataset as instructed by the organizers."
+title: "Allele-resolved analysis and rescue screening for BUB1B-associated MVA1"
+type: software
+authors:
+  - name: "Marxist-Leninist"
+version: 0.1.0
+date-released: 2026-08-26
+license: CC-BY-4.0
+repository-code: "https://github.com/Marxist-Leninist/mva-hackathon-2026"
+

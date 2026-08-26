@@ -1,0 +1,54 @@
+sources:
+  - id: hanks_2004
+    title: Constitutional aneuploidy and cancer predisposition caused by biallelic mutations in BUB1B
+    url: https://pubmed.ncbi.nlm.nih.gov/15475955/
+    doi: 10.1038/ng1449
+  - id: suijkerbuijk_2010
+    title: Molecular causes for BUBR1 dysfunction in the human cancer predisposition syndrome mosaic variegated aneuploidy
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC2887387/
+    doi: 10.1158/0008-5472.CAN-09-4319
+  - id: clingen_bub1b
+    title: ClinGen BUB1B - mosaic variegated aneuploidy syndrome 1 gene-disease validity
+    url: https://search.clinicalgenome.org/kb/gene-validity/CGGV:assertion_59147f27-d5a3-4760-ba8d-0429bae3c906-2019-11-22T14:53:26.352Z
+  - id: gonzalez_blanco_2026
+    title: Proteostasis failure and mitochondrial dysfunction contribute to chromosomal instability-induced microcephaly
+    url: https://www.nature.com/articles/s41467-026-70521-0
+    doi: 10.1038/s41467-026-70521-0
+  - id: north_2014
+    title: SIRT2 induces the checkpoint kinase BubR1 to increase lifespan
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC4194088/
+    doi: 10.15252/embj.201386907
+  - id: pirinen_2020
+    title: Niacin cures systemic NAD+ deficiency and improves muscle performance in adult-onset mitochondrial myopathy
+    url: https://pubmed.ncbi.nlm.nih.gov/32386566/
+    doi: 10.1016/j.cmet.2020.04.008
+  - id: wangen_2020
+    title: Stop codon context influences genome-wide stimulation of termination codon readthrough by aminoglycosides
+    url: https://elifesciences.org/articles/52611
+    doi: 10.7554/eLife.52611
+  - id: malik_2010
+    title: Gentamicin-induced readthrough of stop codons in Duchenne muscular dystrophy
+    url: https://pubmed.ncbi.nlm.nih.gov/20517938/
+    doi: 10.1002/ana.22024
+  - id: wagner_2001
+    title: Gentamicin treatment of Duchenne and Becker muscular dystrophy due to nonsense mutations
+    url: https://pubmed.ncbi.nlm.nih.gov/11409421/
+  - id: gentamicin_label
+    title: Gentamicin injection prescribing information
+    url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=84f5c763-1cd3-4d85-9afb-934db8666fbf
+  - id: arimoclomol_fda
+    title: FDA approval letter for Miplyffa (arimoclomol), NDA 214927
+    url: https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2024/214927Orig1s000ltr.pdf
+  - id: sirolimus_label
+    title: Sirolimus prescribing information
+    url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=9f64692d-2a18-ffcb-c572-0f218a71ca67
+  - id: bub1b_chembl
+    title: ChEMBL BUB1B target record
+    url: https://www.ebi.ac.uk/chembl/explore/target/CHEMBL4295998
+  - id: el_hafi_2025
+    title: Synthesis and biological assessment of BUB1B inhibitors for clear cell renal cell carcinoma
+    url: https://pubmed.ncbi.nlm.nih.gov/39818011/
+    doi: 10.1016/j.ejmech.2025.117247
+  - id: alphafold_bub1b
+    title: AlphaFold DB model AF-O60566-F1 version 6
+    url: https://alphafold.ebi.ac.uk/entry/O60566

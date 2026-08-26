@@ -1,0 +1,17 @@
+{
+  "reference_build": "GRCh38",
+  "primary_transcript": "NM_001211.6",
+  "proband_id": "PROBAND01",
+  "mva_genes": [
+    "BUB1B",
+    "CEP57",
+    "TRIP13",
+    "CENATAC",
+    "MAD1L1",
+    "SLF2",
+    "SMC5"
+  ],
+  "maximum_submission_rows": 10,
+  "release_policy": "derived allowlisted facts only; no individual-level source data"
+}
+

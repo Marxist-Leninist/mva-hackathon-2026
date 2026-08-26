@@ -1,0 +1,25 @@
+{
+  "generated_at": "2026-08-26T05:33:36Z",
+  "track1": {
+    "candidate_pair": "complete",
+    "submission_csv": "complete",
+    "schema_validation": "passed",
+    "independent_vcf_confirmation": "complete",
+    "parental_or_long_molecule_phase": "not available",
+    "orthogonal_clinical_confirmation": "recommended"
+  },
+  "track2": {
+    "mechanism_report": "complete draft",
+    "approved_drug_shortlist": "complete draft",
+    "patient_cell_validation": "not performed",
+    "clinical_efficacy": "unknown",
+    "pitch_script": "complete draft",
+    "pitch_video": "not recorded"
+  },
+  "release": {
+    "privacy_gate": "passed",
+    "github_repository": "published",
+    "track1_hackathon_submission": "awaiting user confirmation",
+    "track2_hackathon_submission": "not ready; video and final review required"
+  }
+}

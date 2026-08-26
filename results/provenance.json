@@ -1,0 +1,17 @@
+{
+  "generated_at": "2026-08-26T05:30:00Z",
+  "reference_build": "GRCh38",
+  "dataset_repository": "SageBio/mva-hackathon-2026-data",
+  "dataset_access": "gated and authorized; source files are not redistributed",
+  "analysis_layers": [
+    "gene-agnostic exact ClinVar pathogenic/likely-pathogenic intersection",
+    "coding consequence and population-frequency annotation",
+    "BUB1B locus review",
+    "public scorer convergence cross-check",
+    "mechanism and approved-drug evidence review"
+  ],
+  "phase_status": "unknown; trans inferred",
+  "public_release": "minimum derived facts only",
+  "software_validation": "python -m unittest discover -s tests -v; python scripts/privacy_gate.py ."
+}
+

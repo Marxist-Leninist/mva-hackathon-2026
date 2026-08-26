@@ -1,36 +1,95 @@
-# Rare Disease, Real Kid: The MVA Hackathon 2026
+# Allele-resolved rescue screening for BUB1B-associated MVA1
 
-Submission repository for the **MVA Hackathon 2026** (Sage Bionetworks, MVA Society, Hugging Face, BEACON), covering:
+This repository contains the public, reproducible submission package for the
+2026 **Rare Disease, Real Kid: MVA Hackathon**. It has two linked outputs:
 
-- **Track 1 - Variant Prediction:** identification of the causal variant(s) underlying the proband's Mosaic Variegated Aneuploidy (MVA), from the challenge WGS VCF and clinical HPO phenotype.
-- **Track 2 - Drug Repurposing:** mechanism-characterised, approved-drug repurposing hypotheses for follow-up investigation.
+1. A Track 1 prediction of a compound-heterozygous `BUB1B` pair.
+2. A Track 2 proposal that tests upstream rescue of each allele before testing
+   downstream protection from aneuploidy-induced stress.
 
-Challenge space: https://sagebio-rare-disease-real-kid-mva-hackathon-2026.hf.space/
+The result is a research hypothesis, not a cure or a treatment recommendation.
+No medicine should be given on the basis of this repository.
 
-## Result summary
+## Headline result
 
-**Primary finding (independently verified against the gated WGS VCF):** a compound heterozygous pair in **BUB1B** (MVA1, OMIM 602860), GRCh38:
+| Allele | GRCh38 | Transcript consequence | Evidence status |
+|---|---|---|---|
+| 1 | `chr15:40209701 T>G` | `NM_001211.6:c.2210T>G`, `p.Leu737Ter` | High-quality heterozygous call; ClinVar P/LP; predicted NMD |
+| 2 | `chr15:40220612 T>G` | `NM_001211.6:c.3006T>G`, `p.Asn1002Lys` | High-quality heterozygous call; absent from gnomAD; exact allele is unclassified |
 
-| # | Variant | HGVS (NM_001211.6) | Protein | VCF evidence |
-|---|---|---|---|---|
-| 1 | chr15:40209701 T>G | c.2210T>G | p.Leu737Ter (UGA; NMD-competent null) | PASS, GT 0/1, AD 21,25, DP 46, GQ 99, MQ 60 |
-| 2 | chr15:40220612 T>G | c.3006T>G | p.Asn1002Lys (C-terminal pseudokinase domain) | PASS, GT 0/1, AD 15,13, DP 28, GQ 99, MQ 60 |
+The alleles are 10,911 bp apart. Short reads do not establish phase and parental
+data were not supplied, so **in trans is inferred, not proven**. The second
+allele remains a VUS in isolation until segregation or functional evidence is
+available.
 
-Biallelic BUB1B loss is the established cause of MVA1; ClinGen classifies BUB1B-MVA1 as Definitive autosomal recessive. The architecture (null + missense/hypomorph) matches the viable-MVA model, since complete BUBR1 loss is not compatible with life in human reports and BubR1-null mice are embryonic lethal.
+The ready-to-upload Track 1 file is
+[`results/MarxistLeninist_bub1b_compound_het.csv`](results/MarxistLeninist_bub1b_compound_het.csv).
 
-## Repository layout
+## Track 2 concept
 
-- `submissions/` - Track 1 prediction CSVs and reports as submitted
-- `track2/` - Track 2 repurposing report and pitch materials
-- `methods/` - full methods write-up
-- `code/` - reproducible analysis code (sanitised; no patient data)
+The proposal is an experimentally gated, three-axis screen:
 
-## Data governance
+- **Read through the nonsense allele:** gentamicin is an approved aminoglycoside
+  with human proof-of-concept for premature-stop readthrough. The exact BUB1B
+  context is `UGA-A`; it must be tested directly because NMD and the +4 base may
+  sharply limit rescue.
+- **Stabilize the missense allele:** arimoclomol is FDA-approved for NPC and
+  amplifies a stress-induced heat-shock response. This is an indirect bridge,
+  not evidence that it rescues `p.Asn1002Lys`.
+- **Test an orthogonal abundance pathway:** prescription nicotinic acid is an
+  approved NAD precursor, while NMN/SIRT2 increased BUBR1 abundance in mice.
+  Niacin is not NMN, so this remains a biomarker-gated comparator.
+- **Buffer downstream proteotoxic stress:** sirolimus (rapamycin) is the only
+  approved candidate in the shortlist with drug-level rescue in a 2026 fly
+  model of SAC-loss MVA-like microcephaly. It does not repair chromosome
+  segregation and carries major immunosuppression and cancer-risk caveats.
 
-This repository contains **no patient genomic data and no identifying clinical information**, in accordance with the challenge data-use terms (WCG IRB protocol 20252010). Only derived variant coordinates and method descriptions are published. Raw challenge data remain gated on Hugging Face under `SageBio/mva-hackathon-2026-data` and will be deleted from local compute environments after the hackathon, with deletion notified to MVAHackathon2026@synapse.org as required.
+Candidates advance only if they restore BUBR1 abundance or checkpoint function,
+reduce *new* chromosome-segregation errors, work near approved human exposure,
+and do not preferentially preserve premalignant aneuploid cells.
 
-## License and acknowledgements
+## Reproduce public checks
 
-All submission materials in this repository are licensed **CC-BY-4.0**, as required by the hackathon rules.
+Python 3.11+ is sufficient; no patient data or third-party package is required.
 
-We thank the child and family who shared their genome and clinical story with the research community, and the MVA Society, Sage Bionetworks, Hugging Face, BEACON, AWS and Anthropic for organising and sponsoring this challenge.
+```bash
+make check
+
+python scripts/readthrough_context.py \
+  --wild-type-codon TTA --codon-position 2 --alternate G --plus-four A
+
+python scripts/structure_context.py AF-O60566-F1-model_v6.pdb --residue 1002
+```
+
+The last command is optional and requires the public AlphaFold model linked in
+the Track 2 report. Structural output is explicitly hypothesis-generating.
+
+## Repository map
+
+- `reports/MarxistLeninist_track1_report.md` - variant analysis and limitations
+- `reports/MarxistLeninist_track2_report.md` - drug rationale and validation plan
+- `reports/pitch_script.md` - approximately three-minute narration
+- `results/` - submission CSV and public evidence/provenance records
+- `scripts/` - submission validator, privacy gate, and reproducible context checks
+- `tests/` - synthetic/unit tests only
+- `DATA_GOVERNANCE.md` - release boundary and privacy safeguards
+
+## Data boundary
+
+The gated genome, phenotype document, read evidence, sample-wide annotations,
+and intermediate files are deliberately absent. The repository publishes only
+the minimum derived facts needed for the competition. Run `make privacy` before
+every public commit.
+
+## Acknowledgement
+
+This work was made possible through the Hackathon, organized by Sage
+Bionetworks in partnership with the MVA Society, Hugging Face, and BEACON (The
+Benchmarking, Evaluation, and Assessment Consortium for Science), with prize
+sponsorship from AWS and Anthropic. We are deeply grateful to the child and
+their family who generously contributed their data and their story to advance
+research into this rare disease. We acknowledge their trust in making this
+Hackathon possible.
+
+Released under [CC BY 4.0](LICENSE). The underlying gated dataset has separate,
+more restrictive terms and is not redistributed here.

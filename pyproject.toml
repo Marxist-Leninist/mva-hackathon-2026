@@ -1,0 +1,10 @@
+[project]
+name = "mva-hackathon-2026"
+version = "0.1.0"
+description = "Privacy-preserving Track 1 validation and Track 2 rescue-screen design for BUB1B-associated MVA1"
+requires-python = ">=3.11"
+license = {text = "CC-BY-4.0"}
+
+[tool.ruff]
+line-length = 100
+
