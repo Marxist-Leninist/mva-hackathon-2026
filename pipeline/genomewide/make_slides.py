@@ -60,14 +60,14 @@ img.fig{width:100%;max-height:668px;object-fit:contain;margin-top:16px}
 SLIDES = {
 1: """<div class="s">
  <div class="kicker">Track 1 · the answer</div>
- <h1>Mosaic Variegated Aneuploidy type 1<span class="pill">BUB1B · compound het</span></h1>
+ <h1>Mosaic Variegated Aneuploidy type 1<span class="pill">BUB1B · candidate biallelic</span></h1>
  <div class="vt">
   <div class="v"><div class="c mono">chr15:40,209,701 T&gt;G</div>
    <div class="p">c.2210T&gt;G &nbsp;<b>p.Leu737Ter</b> — premature stop <span class="pill r">null allele</span></div>
    <div class="n">ClinVar: Pathogenic / Likely pathogenic — “Mosaic variegated aneuploidy syndrome 1”</div></div>
   <div class="v alt"><div class="c mono">chr15:40,220,612 T&gt;G</div>
-   <div class="p">c.3006T&gt;G &nbsp;<b>p.Asn1002Lys</b> — pseudokinase domain <span class="pill">hypomorph</span></div>
-   <div class="n">Absent from gnomAD and ClinVar · novel</div></div>
+   <div class="p">c.3006T&gt;G &nbsp;<b>p.Asn1002Lys</b> — pseudokinase domain <span class="pill">predicted hypomorph</span></div>
+   <div class="n">gnomAD v4 exomes: 1 in 1,461,878 (AF 6.8&times;10<sup>-7</sup>) · unreported in ClinVar</div></div>
  </div>
  <div class="foot">Ranked #1 genome-wide with no gene-panel prior · confirmed at read level from the raw FASTQs · research findings only, not medical advice</div>
 </div>""",

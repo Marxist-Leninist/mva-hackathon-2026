@@ -7,8 +7,8 @@ SEGMENTS = [
     "Two variants in the gene, bub one bee.",0.25),
  (1,"A stop at codon 737 — ClinVar already calls it pathogenic for this exact disease.",
     "A stop at codon seven thirty seven, that ClinVar already calls pathogenic for this exact disease.",0.3),
- (1,"And a novel missense at asparagine 1002, absent from gnomAD, in the pseudokinase domain.",
-    "And a novel missense at asparagine one thousand and two, absent from gnomad, in the pseudokinase domain.",0.45),
+ (1,"And a novel missense at asparagine 1002 — one allele in 1.5 million — in the pseudokinase domain.",
+    "And a novel missense at asparagine one thousand and two. One allele in one and a half million. In the pseudokinase domain.",0.45),
  (1,"It ranked first genome-wide with no gene-panel prior, and we confirmed it from the raw reads.",
     "It ranked first genome wide with no gene panel prior. And we confirmed it from the raw reads, without trusting the variant caller.",0.6),
 

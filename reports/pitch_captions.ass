@@ -15,7 +15,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:03.49,Cap,,0,0,0,,This child has Mosaic Variegated Aneuploidy type 1.
 Dialogue: 0,0:00:03.49,0:00:05.84,Cap,,0,0,0,,Two variants in BUB1B.
 Dialogue: 0,0:00:05.84,0:00:12.01,Cap,,0,0,0,,A stop at codon 737 — ClinVar already calls it pathogenic for this exact disease.
-Dialogue: 0,0:00:12.01,0:00:18.35,Cap,,0,0,0,,And a novel missense at asparagine 1002, absent from gnomAD, in the pseudokinase domain.
+Dialogue: 0,0:00:12.01,0:00:18.35,Cap,,0,0,0,,And a novel missense at asparagine 1002 — one allele in 1.5 million — in the pseudokinase domain.
 Dialogue: 0,0:00:18.45,0:00:26.01,Cap,,0,0,0,,It ranked first genome-wide with no gene-panel prior, and we confirmed it from the raw reads.
 Dialogue: 0,0:00:26.25,0:00:30.88,Cap,,0,0,0,,The truncating allele makes no protein. Nonsense-mediated decay removes it.
 Dialogue: 0,0:00:30.88,0:00:33.90,Cap,,0,0,0,,So everything this child has comes from the other copy.
