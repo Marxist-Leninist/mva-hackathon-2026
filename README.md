@@ -29,10 +29,11 @@ The ready-to-upload Track 1 file is
 
 The proposal is an experimentally gated, three-axis screen:
 
-- **Read through the nonsense allele:** gentamicin is an approved aminoglycoside
-  with human proof-of-concept for premature-stop readthrough. The exact BUB1B
-  context is `UGA-A`; it must be tested directly because NMD and the +4 base may
-  sharply limit rescue.
+- **Read through the nonsense allele:** azithromycin is the exposure-bridged
+  first screen, with gentamicin as a stronger but substantially more toxic
+  mechanistic comparator. The exact BUB1B context is `UGA-A`; it must be tested
+  directly because NMD, the +4 base, and the identity of the inserted amino acid
+  may sharply limit functional rescue.
 - **Stabilize the missense allele:** arimoclomol is FDA-approved for NPC and
   amplifies a stress-induced heat-shock response. This is an indirect bridge,
   not evidence that it rescues `p.Asn1002Lys`.

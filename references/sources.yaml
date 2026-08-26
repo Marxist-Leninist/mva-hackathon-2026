@@ -36,6 +36,17 @@ sources:
   - id: gentamicin_label
     title: Gentamicin injection prescribing information
     url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=84f5c763-1cd3-4d85-9afb-934db8666fbf
+  - id: caspi_2016
+    title: A flow cytometry-based reporter assay identifies macrolide antibiotics as nonsense mutation read-through agents
+    url: https://pubmed.ncbi.nlm.nih.gov/26620677/
+    doi: 10.1007/s00109-015-1364-3
+  - id: dabrowski_2021
+    title: Properties of non-aminoglycoside compounds used to stimulate translational readthrough of PTC mutations in primary ciliary dyskinesia
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8125088/
+    doi: 10.3390/ijms22094923
+  - id: azithromycin_label
+    title: Azithromycin prescribing information
+    url: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=af720986-48a9-48b5-bdd7-370f6a2f92e1
   - id: arimoclomol_fda
     title: FDA approval letter for Miplyffa (arimoclomol), NDA 214927
     url: https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2024/214927Orig1s000ltr.pdf

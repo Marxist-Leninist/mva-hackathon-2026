@@ -20,7 +20,8 @@ remain aneuploid.
 
 I propose a **factorial patient-cell rescue screen**, not an empirical cocktail:
 
-1. **Gentamicin** for allele-specific premature-stop readthrough.
+1. **Azithromycin**, with **gentamicin** as a mechanistic comparator, for
+   allele-specific premature-stop readthrough.
 2. **Arimoclomol** for stress-gated chaperone amplification and stabilization of
    the full-length missense protein.
 3. **Prescription nicotinic acid** as an orthogonal, biomarker-gated
@@ -59,18 +60,29 @@ favorable +4C context. More importantly, the transcript is predicted to undergo
 NMD. A readthrough drug has little substrate if the RNA is almost absent.
 Allele-specific RNA abundance is therefore the first gate, not an afterthought.
 
-## Candidate 1: gentamicin - rescue the premature-stop allele
+## Candidate 1: azithromycin with a gentamicin comparator - rescue the premature-stop allele
 
 ### Rationale
 
-Gentamicin is an approved aminoglycoside antibiotic that can reduce decoding
-fidelity and permit translation across some premature termination codons. Human
+Azithromycin is an approved macrolide antibiotic with a limited but
+exposure-relevant readthrough signal. Caspi and colleagues reported restoration
+of full-length protein in unrelated Rett and SMA patient fibroblasts after seven
+days at `0.1-5 micrograms/mL`. Current prescribing information reports pediatric
+serum Cmax values of approximately `0.216-0.5 micrograms/mL` after approved
+antibacterial regimens. That overlap makes azithromycin worth testing before an
+aminoglycoside, but it does not establish BUB1B activity, adequate exposure in
+relevant tissues, or clinical feasibility. The same paper's direct antibiotic
+comparison used `100 micrograms/mL`, and later context-panel work found weak,
+highly sequence-dependent responses concentrated in TGA stops. The exact BUB1B
+`UGA-A` sequence therefore remains an experiment, not an extrapolation.
+
+Gentamicin is the mechanistically stronger positive comparator. Human
 nonsense-disease studies establish proof of mechanism but also show strong
 context dependence. A two-week Duchenne study in four patients did not detect
-full-length dystrophin. A later six-month study reported a significant group-level
-increase, with a few participants reaching 13-15% of normal dystrophin; stable
-pretreatment transcript predicted response. The latter observation is directly
-relevant to an NMD-competent BUB1B stop.
+full-length dystrophin. A later six-month study reported a significant
+group-level increase, with a few participants reaching 13-15% of normal
+dystrophin; stable pretreatment transcript predicted response. The latter
+observation is directly relevant to an NMD-competent BUB1B stop.
 
 Readthrough does not necessarily restore leucine: near-cognate decoding at UGA
 commonly inserts tryptophan, cysteine, or arginine. A full-length band is therefore
@@ -80,17 +92,21 @@ part of the safety screen.
 
 ### Why it is only an ex-vivo lead
 
-The approved label carries serious nephrotoxicity, often irreversible
-ototoxicity, and neurotoxicity warnings; risk rises with exposure and duration.
-The label also warns that certain `MT-RNR1` variants can confer hearing-loss risk
-even at usual serum levels. Chronic use for a noninfectious pediatric indication
-cannot be inferred from antibiotic approval. No dose is proposed here.
+Azithromycin's label warns about QT prolongation, severe hepatotoxicity, hearing
+disturbance, and other serious reactions. Long-term noninfectious use also raises
+antimicrobial-resistance and microbiome concerns. Gentamicin carries serious
+nephrotoxicity, often irreversible ototoxicity, and neurotoxicity warnings; risk
+rises with exposure and duration. Its label also warns that certain `MT-RNR1`
+variants can confer hearing-loss risk even at usual serum levels. Chronic use of
+either antibiotic for a pediatric genetic disorder cannot be inferred from
+antibiotic approval. No dose is proposed here.
 
 ### First experiment
 
 Build a dual-luciferase reporter containing at least 12 nucleotides on each side
-of the exact `UGA-A` context, then test exposure-matched gentamicin alongside a
-no-stop control and a non-readthrough negative control. In patient-derived cells:
+of the exact `UGA-A` context, then test exposure-matched azithromycin and
+gentamicin separately alongside a no-stop control and a non-readthrough negative
+control. In patient-derived cells:
 
 - quantify allele-specific BUB1B RNA before and after treatment;
 - detect full-length BUBR1 by immunoblot and targeted mass spectrometry;
@@ -99,9 +115,11 @@ no-stop control and a non-readthrough negative control. In patient-derived cells
   missegregation events.
 
 If the stop-allele transcript is nearly absent or full-length protein cannot be
-detected near tolerated human exposure, gentamicin is rejected. NMD inhibitors
-may be used as short mechanistic controls in vitro, but global NMD suppression is
-not promoted as a treatment because it can stabilize many abnormal transcripts.
+detected near tolerated human exposure, that antibiotic is rejected. Neither
+drug is combined with the other: antagonism and cumulative antibiotic harms make
+that biologically and clinically unjustified. NMD inhibitors may be used as
+short mechanistic controls in vitro, but global NMD suppression is not promoted
+as a treatment because it can stabilize many abnormal transcripts.
 
 ## Candidate 2: arimoclomol - test stabilization of p.Asn1002Lys
 
@@ -224,7 +242,7 @@ and repeated by a second laboratory before any translational claim.
 
 ### Treatment matrix
 
-Test vehicle, gentamicin, arimoclomol, nicotinic acid, sirolimus,
+Test vehicle, azithromycin, gentamicin, arimoclomol, nicotinic acid, sirolimus,
 N-acetylcysteine, and readthrough-plus-stabilizer combinations. Use
 concentration-response and time-course designs anchored to unbound exposure
 achieved in approved use. Add research-only
@@ -236,8 +254,9 @@ efficacy cutoffs.
 
 ### Gate G0 - target engagement
 
-- Gentamicin: at least a two-fold reporter signal plus independently detected
-  full-length stop-allele protein.
+- Azithromycin or gentamicin: at least a two-fold exact-context reporter signal
+  plus independently detected full-length stop-allele protein and an
+  allele-specific peptide spanning residue 737.
 - Arimoclomol: at least a 25% increase in p.Asn1002Lys half-life or abundance,
   with an orthogonal chaperone/thermal-shift signal.
 - Nicotinic acid: NAD/SIRT2 pathway engagement, reduced BUBR1 Lys668 acetylation,
@@ -320,8 +339,9 @@ logic plus a rescue-versus-cancer safety index**:
 - publish a privacy-preserving, pre-registered workflow that can be reused for
   other null-plus-unstable-missense recessive diseases.
 
-This makes negative results useful. Failure of gentamicin localizes the barrier
-to NMD/context or toxicity. Failure of arimoclomol distinguishes an unstable
+This makes negative results useful. Failure of both readthrough agents localizes
+the barrier to NMD, sequence context, wrong amino-acid incorporation, or
+exposure. Failure of arimoclomol distinguishes an unstable
 protein from a stable but functionally defective one. Failure of sirolimus shows
 that downstream proteostasis buffering is insufficient or unsafe. The framework
 can then redirect effort toward antisense NMD escape, allele-specific RNA editing,
@@ -352,3 +372,6 @@ two alleles to a small, safety-aware experimental shortlist.
 13. Wangen JR, Green R. *eLife.* 2020. https://elifesciences.org/articles/52611
 14. Pirinen E, et al. *Cell Metab.* 2020. https://pubmed.ncbi.nlm.nih.gov/32386566/
 15. Miplyffa prescribing information. https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=5feffc0e-453d-47fa-91dd-38d4952309bc&type=display
+16. Caspi M, et al. *J Mol Med.* 2016. https://pubmed.ncbi.nlm.nih.gov/26620677/
+17. Dabrowski M, et al. *Int J Mol Sci.* 2021. https://pmc.ncbi.nlm.nih.gov/articles/PMC8125088/
+18. Azithromycin prescribing information. https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=af720986-48a9-48b5-bdd7-370f6a2f92e1

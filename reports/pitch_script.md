@@ -13,11 +13,13 @@ allele, and can we do it without helping genetically unstable cells survive?
 
 ## 0:35-1:20 - Match one approved medicine to each failure
 
-For the stop allele, we test gentamicin. It is an approved aminoglycoside with
-human proof-of-concept for premature-stop readthrough, but results in other
-diseases have been variable. The exact BUB1B context is UGA followed by A, and
-the transcript may be depleted by NMD, so we measure allele-specific RNA first.
-No transcript or no full-length protein at reachable exposure means no-go.
+For the stop allele, we test azithromycin first, with gentamicin as a stronger
+but more toxic mechanistic comparator. Azithromycin restored full-length protein
+in unrelated patient fibroblasts at concentrations overlapping the low end of
+approved pediatric exposure, but nobody has tested this BUB1B sequence. The
+exact context is UGA followed by A, and NMD may remove the transcript, so we
+measure allele-specific RNA, the inserted amino acid, and functional checkpoint
+rescue. No target engagement at reachable exposure means no-go.
 
 For the missense allele, we test arimoclomol. Patient-cell research showed that
 some BUBR1 kinase-region missense proteins turn over rapidly and depend on
@@ -53,8 +55,7 @@ not enough.
 ## 2:42-3:00 - Why this matters
 
 This is not a cure claim. It is a disciplined route from this child's exact
-alleles to three approved-drug hypotheses with pre-registered stop rules. The
+alleles to three approved-drug axes with pre-registered stop rules. The
 same null-plus-unstable-missense framework can scale to other recessive rare
 diseases, while the rescue-versus-cancer index tackles the central safety problem
 of chromosomal-instability syndromes.
-
