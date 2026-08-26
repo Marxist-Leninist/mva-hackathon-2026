@@ -70,6 +70,7 @@ the Track 2 report. Structural output is explicitly hypothesis-generating.
 - `reports/MarxistLeninist_track1_report.md` - variant analysis and limitations
 - `reports/MarxistLeninist_track2_report.md` - drug rationale and validation plan
 - `reports/pitch_script.md` - approximately three-minute narration
+- `SUBMISSION_CHECKLIST.md` - exact form fields and action-time safety gates
 - `results/` - submission CSV and public evidence/provenance records
 - `scripts/` - submission validator, privacy gate, and reproducible context checks
 - `tests/` - synthetic/unit tests only

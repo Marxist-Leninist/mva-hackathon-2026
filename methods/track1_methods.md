@@ -1,86 +1,168 @@
-# Track 1 Methods: BUB1B Compound Heterozygote Identification (MarxistLeninist)
+# Track 1 report: biallelic BUB1B in Mosaic Variegated Aneuploidy
 
-**Challenge:** Rare Disease, Real Kid — The MVA Hackathon 2026
-**Proband:** PROBAND01 (sample WGS_EX2312012)
-**Date:** 2026-08-26
+**Participant:** MarxistLeninist  
+**Reference:** GRCh38  
+**Proband:** PROBAND01  
+**Submission file:** `results/MarxistLeninist_bub1b_compound_het.csv`
 
-## 1. Task
+## Result
 
-Identify the specific genetic variant(s) driving the proband's Mosaic Variegated Aneuploidy (MVA) from whole-genome sequencing (WGS) data and a clinical HPO phenotype, and rank them by estimated probability of causal relationship (EPCR).
+The top causal model is **BUB1B-associated MVA1** with two heterozygous variants:
 
-## 2. Input data
+1. `chr15:40209701 T>G`; `NM_001211.6:c.2210T>G`; `p.Leu737Ter`
+2. `chr15:40220612 T>G`; `NM_001211.6:c.3006T>G`; `p.Asn1002Lys`
 
-| Item | Source | Notes |
-|---|---|---|
-| WGS variant calls | `WGS_EX2312012_HGWCNDSX7.vcf.gz` (315 MB, hg38d1-based no-chr-prefixed reference; numeric contigs) | GATK-style HaplotypeCaller output, 5,012,204 records, 4,740,790 PASS |
-| Clinical phenotype | `Challenge_Clinical_Phenotype_1.docx` | HPO cluster below |
+The predicted architecture is a loss-of-function allele plus a full-length
+missense/hypomorphic allele. This fits the established autosomal-recessive
+BUB1B-MVA1 mechanism. The pair is submitted as one primary row.
 
-Clinical HPO constellation (as documented in the challenge phenotype file):
+This conclusion is strong, but one part remains unresolved: the two sites are
+10,911 bp apart and are not read-phased. There is no parental dataset. Therefore,
+**compound heterozygosity (in trans) is inferred rather than demonstrated**.
 
-- Rhabdomyosarcoma (HP:0002859) — the primary oncological event
-- Nephrocalcinosis (HP:0000121), present since birth
-- Short stature (HP:0004322)
-- Failure to thrive (HP:0001508) and skeletal muscle atrophy (HP:0003202)
-- Premature birth at 32 weeks (HP:0001622)
-- Small for gestational age ≈1 kg (HP:0001518)
-- Parental recurrent miscarriages (HP:0200067)
+## Analysis strategy
 
-The co-occurrence of cancer predisposition, growth restriction, renal anomaly, adverse perinatal history, and parental reproductive loss is the phenotypic signal; we treated the full constellation — including the parental miscarriage history — as input, per the challenge's own interpretive notes.
+The gated data were handled only in an authorized private environment. The
+public repository contains derived allowlisted facts, code, and reports; it does
+not contain the genome, clinical source document, read evidence, or sample-wide
+annotations.
 
-## 3. Candidate gene space
+The primary discovery lane was gene-agnostic:
 
-MVA is genetically heterogeneous with a small known gene set: **BUB1B** (MVA1, classic form, OMIM 257300), **CEP57** (MVA2), **TRIP13** (MVA3), **CENATAC/CCDC84**, plus the broader spindle assembly checkpoint (SAC) and chromosomal instability (CIN) machinery (BUB1, BUB3, MAD1L1, MAD2L1, CDC20, TTK, PLK1, AURKB, and kinetochore/cohesin/DDR interactors). ClinGen classifies **BUB1B–MVA1 as Definitive autosomal recessive**.
+1. Retain the 4,740,790 `PASS` records from the supplied singleton WGS VCF.
+2. Normalize representation conceptually to GRCh38 coordinates and require an
+   exact chromosome-position-reference-alternate match.
+3. Intersect against 346,282 ClinVar Pathogenic/Likely pathogenic records. This
+   produced seven exact matches genome-wide; one was the BUB1B stop-gain already
+   associated with MVA1.
+4. Annotate coding consequences, population frequency, disease mechanism, and
+   computational predictions.
+5. Search the complete BUB1B locus for a second allele rather than stopping at
+   the ClinVar hit.
+6. Rank complete recessive pairs against phenotype and gene-disease validity.
+7. Cross-check the resulting pair against the public live scorer only after the
+   private derivation.
 
-Phenotype-to-gene weighting: severe SAC impairment (BUB1B, TRIP13) tracks embryonal tumour risk in MVA whereas CEP57-MVA2 does not (Kuijt/Hanks et al., PMID 28553959), which — combined with the proband's rhabdomyosarcoma — prioritises BUB1B/TRIP13 over CEP57 before any variant evidence is considered.
+The locus contained 14 non-reference calls at any filter level. Twelve were
+intronic modifier calls, mostly common. The only two coding-impact calls were
+the two submitted variants. Distributed heterozygous sites across the locus did
+not suggest a large intragenic loss-of-heterozygosity block. A separate simple
+VCF depth/heterozygous-allele-balance screen did not yield convincing evidence
+of mosaic whole-chromosome imbalance in this bulk sample; chromosome-level
+shifts tracked known coverage/GC behavior. This negative result does not argue
+against MVA, which is tissue- and cell-mosaic and is not reliably diagnosed from
+bulk short-read WGS depth.
 
-## 4. Variant-level analysis (this submission)
+## Variant-level evidence
 
-We queried the VCF directly for BUB1B (GRCh38: chr15:40,161,068–40,221,122; NCBI gene 701; NM_001211.6). The region contains 14 variant records; the two protein-altering candidates are:
+### Allele 1: p.Leu737Ter
 
-| Site | VCF record | Evidence | Interpretation |
-|---|---|---|---|
-| chr15:40,209,701 T>G | PASS, QUAL 708.77, GT 0/1, AD 21,25, DP 46, GQ 99, MQ 60, all rank-sum statistics ≈0 | c.2210T>G → p.Leu737Ter. Reference codon 737 is TTA; the variant creates **TGA (UGA)**. Exonic, NMD-competent premature termination codon | Null allele |
-| chr15:40,220,612 T>G | PASS, QUAL 344.77, GT 0/1, AD 15,13, DP 28, GQ 99, MQ 60 | c.3006T>G → p.Asn1002Lys, inside the C-terminal **pseudokinase domain (residues ~766–1050)** | Hypomorphic missense |
+- `FILTER=PASS`, `QUAL=708.77`
+- genotype `0/1`, allele depths `21,25`, total depth `46`, genotype quality `99`
+- alternate-allele balance `0.54`
+- ClinVar Allele ID 529272, Pathogenic/Likely pathogenic, multiple submitters,
+  no conflicts
+- reported gnomAD frequency approximately `7.87e-05` in exomes and `3.29e-05`
+  in genomes
+- stop gained in exon 17 of 23
 
-Both are allele-balanced heterozygotes at high genotype quality. They are ~10.9 kb apart; short-read WGS cannot phase them (no PGT/PID evidence), so *in trans* configuration is **inferred from the MVA1 genotype architecture, not read-proven** — stated explicitly rather than overclaimed.
+The premature stop is well upstream of the final exon junction and is expected
+to trigger nonsense-mediated decay. Transcript-level NMD was not measured, so
+the report uses “NMD-competent/expected,” not “experimentally proven absent.”
 
-### 4.1 Why this pair is the textbook MVA1 architecture
+The exact coding change is reproducible: wild-type codon `TTA` (Leu), with the
+second base changed from `T` to `G`, becomes `TGA` (UGA stop). The following
+base is `A`, giving `TGA-A` in DNA or `UGA-A` in RNA.
 
-- Complete biallelic BUBR1 loss is not compatible with viability in the mouse (Bub1b−/− dies ~E8.5) and no fully-null human cases are reported; every surviving MVA1 proband retains residual BUBR1 function via hypomorphic, missense, or regulatory alleles.
-- p.Leu737Ter is NMD-targeted: Suijkerbuijk et al. (PMID 20516114) showed 386X/731X-class truncated BUB1B transcripts are undetectable in patient cells — functionally null.
-- p.Asn1002Lys sits in the pseudokinase domain where the characterised MVA1 class (R727C, L844F, I909T, L1012P) acts through a pure **protein-abundance defect** (5–10× lower steady-state protein, ~2× faster turnover, normal mRNA, HSP90-folding-dependent, proteasome-cleared, fully rescued by re-expression; Suijkerbuijk et al.). Human N1002 is structurally adjacent to the mouse-validated hypomorph L1002 of the BubR1^H allelic series.
-- gnomAD: p.Leu737Ter AF ≈7.9e-05; p.Asn1002Lys absent from gnomAD (ultra-rare, function untested → treated as VUS upgraded by the compound-het architecture and phenotype fit).
+### Allele 2: p.Asn1002Lys
 
-### 4.2 Rule-out of alternatives
+- `FILTER=PASS`, `QUAL=344.77`
+- genotype `0/1`, allele depths `15,13`, total depth `28`, genotype quality `99`
+- alternate-allele balance `0.46`
+- absent from the queried gnomAD exome and genome datasets
+- predicted deleterious by SIFT and probably damaging by PolyPhen
+- located in exon 23, the final exon, within the C-terminal kinase/pseudokinase
+  region
 
-All other MVA genes and CIN mimics (CEP57, TRIP13, CENATAC/CCDC84, BUB1, BUB3, MAD1L1, MAD2L1, CDC20, TTK, PLK1, AURKB, plus kinetochore/cohesin/DDR genes) carry no rare coding PASS variant compatible with a recessive or dominant disease model in this proband. Within the BUB1B locus itself, no third candidate variant exists (the other 12 records are intronic/synonymous/benign-population variants; p.Arg550Gln is Benign/Likely Benign in ClinVar and functionally rescuing in published assays — explicitly excluded).
+The exact `T>G` allele is not classified in ClinVar. Other substitutions at the
+same genomic position do not determine the classification of this one. It must
+therefore remain a **VUS in isolation**. Rarity, in-silico predictions, domain
+location, the second BUB1B loss-of-function allele, and the highly specific MVA
+phenotype provide strong case-level support, but segregation or functional data
+are needed for formal reclassification.
 
-Independent corroboration: a parallel blinded genome-wide tiering run (GENCODE CDS tiering → VEP → HPO semantic similarity, with ablations removing ClinVar priors and phenotype priors separately) also ranked BUB1B #1 of 217 genes, confirming the call is data-derived rather than knowledge-derived.
+An AlphaFold DB v6 model places residue 1002 in a high-confidence local region
+(mean per-atom pLDDT 91.06). Predicted Asn side-chain contacts to backbone atoms
+near residues 978 and 998 suggest a plausible local structural role. This is
+hypothesis-generating only: a predicted model cannot establish destabilization,
+pathogenicity, or druggability.
 
-### 4.3 Nephrocalcinosis note
+## Gene and inheritance fit
 
-Nephrocalcinosis is **not** an established BUB1B-MVA1 feature (OMIM:257300 renal phenotype is cystic/dysplastic, and Wilms tumour, not calcification). We flag it as a candidate for an independent second diagnosis (recessive nephrocalcinosis/hypercalciuria panel under investigation) and do not let it weaken the primary call.
+ClinGen classifies the relationship between biallelic BUB1B variants and MVA1 as
+Definitive. The founding study identified constitutional aneuploidy and cancer
+predisposition with biallelic BUB1B variants. Functional work in MVA patient
+cells showed low BUBR1 abundance, impaired spindle-checkpoint activity, and
+chromosome-alignment defects; restoring BUBR1 restored checkpoint activity.
 
-## 5. Submission
+Viable reported patients often retain residual BUBR1 function through a
+hypomorphic/hypomorphic or truncating-plus-missense combination. It would be
+too strong to claim that human biallelic null is proven embryonic lethal; the
+defensible observation is that complete loss is lethal in mouse models and
+viable human cases generally preserve residual function.
 
-One primary row, EPCR 0.97, GRCh38 chr-prefixed coordinates per the official template. Secondary/incidental findings were deliberately withheld from this first scored submission pending review-status and return-of-results ethics checks; they may be added in a later submission (the automated score is unaffected by secondaries).
+The main gene-level alternatives were considered:
 
-## 6. Reproducibility
+- **TRIP13:** particularly important in a Wilms-tumor-heavy presentation.
+- **CEP57:** important with relative head sparing, rhizomelia, hypothyroidism,
+  and the original series' limited cancer history; manual indel review matters.
+- **CENATAC:** limited human evidence and a generally milder reported phenotype.
+- **MAD1L1, SLF2, SMC5, and other chromosome-segregation genes:** retained in
+  the broader MVA lane.
 
-- All analysis code is published in `code/` (sanitised; no patient data in this repository).
-- Coordinates, REF/ALT, and genotype QC above are independently re-derivable from the gated dataset.
-- The official scorer was replicated locally from the challenge's published `evaluation.py`; the submission CSV pre-scores 100/1.000 in the local replica before upload.
+No alternative explains the gene-agnostic pathogenic ClinVar hit plus the second
+rare coding BUB1B allele as directly as the submitted pair.
 
-## 7. Limitations
+## Confirmation required
 
-- Phase (trans) inferred, not read-proven (short-read limitation).
-- p.Asn1002Lys functional effect untested; classification relies on domain/class analogy to published MVA1 pseudokinase missense alleles.
-- Mosaicism itself is not quantifiable from bulk WGS at these allele fractions (~0.5); the variants are constitutional-het pattern, consistent with the child's mosaic aneuploidy phenotype arising from checkpoint failure rather than somatic mutation of BUB1B.
+Before clinical use or publication as a solved genotype:
+
+1. Inspect both sites in the alignment for mapping, strand, read-position, and
+   local sequence artifacts; independently re-call if raw data are available.
+2. Orthogonally confirm each allele.
+3. Establish trans through parental testing or targeted long-molecule phasing.
+   Ordinary short reads cannot bridge 10.9 kb; validating each site by Sanger
+   sequencing alone does not phase them.
+4. Measure allele-specific BUB1B RNA and BUBR1 protein abundance in patient cells.
+5. Test p.Asn1002Lys in an isogenic system for half-life, kinetochore recruitment,
+   spindle-checkpoint arrest, chromosome alignment, and missegregation.
+6. Apply ACMG/AMP and ClinGen PVS1/PM3 guidance conservatively after segregation
+   and functional evidence are available.
+
+## Incidental findings and privacy
+
+Additional candidate records from an automated ClinVar screen are intentionally
+not published. Automated annotation is not clinical confirmation, and an open
+competition is not an appropriate return-of-results pathway. A qualified clinical
+genetics team may review such records under the governing protocol.
+
+## Limitations
+
+- Singleton WGS cannot prove inheritance phase.
+- The missense allele has no exact ClinVar classification and no direct functional
+  assay in this child.
+- Bulk WGS is not a sensitive substitute for cytogenetic assessment of mosaic
+  aneuploidy across relevant tissues.
+- In-silico predictors and AlphaFold contacts are supporting hypotheses, not
+  independent proof.
+- The public report cannot expose restricted read-level material, sample-wide
+  findings, or phenotype source files.
 
 ## References
 
-1. Suijkerbuijk SJ et al. (2010) PMID 20516114 — BUBR1 MVA domain mutants, abundance defect, HSP90 dependence.
-2. Kuijt IM, Hanks S et al. PMID 28553959 — MVA tumour risk tracks SAC-impaired genes.
-3. ClinGen Gene-Disease Validity: BUB1B–Mosaic Variegated Aneuploidy 1, Definitive.
-4. Hanks S et al. (2004) Nat Genet — BUB1B mutations in MVA1.
-5. North BJ et al. (2014) — SIRT2/NAD+ control of BubR1 stability (context for Track 2).
+1. Hanks S, et al. *Nat Genet.* 2004. https://pubmed.ncbi.nlm.nih.gov/15475955/
+2. Suijkerbuijk SJE, et al. *Cancer Res.* 2010. https://pmc.ncbi.nlm.nih.gov/articles/PMC2887387/
+3. ClinGen BUB1B-MVA1 gene validity. https://search.clinicalgenome.org/kb/gene-validity/CGGV:assertion_59147f27-d5a3-4760-ba8d-0429bae3c906-2019-11-22T14:53:26.352Z
+4. ClinGen variant-interpretation guidance. https://www.clinicalgenome.org/tools/clingen-variant-classification-guidance/
+5. AlphaFold DB, BUB1B/O60566. https://alphafold.ebi.ac.uk/entry/O60566
+
