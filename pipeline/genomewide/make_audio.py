@@ -2,7 +2,7 @@ import os, json, numpy as np, soundfile as sf, time
 from kokoro import KPipeline
 from script_segments import SEGMENTS
 
-VOICE='af_heart'; SPEED=1.07; SR=24000
+VOICE='af_heart'; SPEED=1.09; SR=24000
 pipe=KPipeline(lang_code='a')
 os.makedirs('audio',exist_ok=True)
 timeline=[]; parts=[]; t=0.0

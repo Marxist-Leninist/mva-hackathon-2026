@@ -67,6 +67,39 @@ cmd = ['ffmpeg','-y'] + inputs + ['-i',AUD,
        '-movflags','+faststart','-shortest',
        'out/MVA_Track2_pitch_MarxistLeninist.mp4']
 print("running ffmpeg...")
+RAW = 'out/MVA_Track2_pitch_MarxistLeninist.mp4'
+FINAL = 'out/MVA_Track2_pitch_MarxistLeninist_final.mp4'
 r = subprocess.run(cmd, capture_output=True, text=True)
-if r.returncode: print(r.stderr[-2500:])
-else: print("OK")
+if r.returncode:
+    print(r.stderr[-2500:])
+    raise SystemExit(1)
+print("OK")
+
+# ---- loudness normalisation (two-pass EBU R128)
+# make_audio.py peak-normalises, which is not the same thing: this mux measured
+# -23.8 LUFS integrated, roughly 7 LU below the ~-14 LUFS platforms normalise
+# to. A quiet, narrow-range source sounds weak next to other submissions, and a
+# judge should not have to reach for the volume. Two-pass rather than one so the
+# gain is computed from the real measurement instead of a running estimate.
+def measure(path):
+    p = subprocess.run(
+        ['ffmpeg','-hide_banner','-nostats','-i',path,
+         '-af','loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json','-f','null','-'],
+        capture_output=True, text=True)
+    blob = p.stderr[p.stderr.rindex('{'):p.stderr.rindex('}')+1]
+    return json.loads(blob)
+
+m = measure(RAW)
+print(f"measured: {m['input_i']} LUFS, TP {m['input_tp']} dBFS")
+norm = (f"loudnorm=I=-16:TP=-1.5:LRA=11:measured_I={m['input_i']}:"
+        f"measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:"
+        f"measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+r2 = subprocess.run(
+    ['ffmpeg','-y','-v','error','-i',RAW,'-af',norm,
+     '-c:v','copy','-c:a','aac','-b:a','192k','-ar','48000',
+     '-movflags','+faststart', FINAL],
+    capture_output=True, text=True)
+if r2.returncode:
+    print(r2.stderr[-2000:])
+    raise SystemExit(1)
+print(f"normalised -> {FINAL}")
