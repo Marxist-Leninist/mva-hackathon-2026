@@ -51,13 +51,22 @@ Also checked and refuted as a decoy: **p.Arg550Gln (c.1649G>A, rs28989187) is no
 recurrent MVA allele** — it rescues both checkpoint and alignment at wild-type levels
 (PMID 20516114) and ClinVar classifies it Benign/Likely benign. It is absent from this proband.
 
-### Read-level confirmation from the raw FASTQs
+### Read-level confirmation from the raw FASTQs — COMPLETE (all 8 lanes)
 
-`pipeline/genomewide/readlevel_validate.sh` streams all eight FASTQ lanes directly from the Hub
-(never written to disk), decompresses on the fly, and counts exact 31-mer matches for the REF and
-ALT haplotypes of both alleles on both strands. This confirms the calls from primary read evidence
-without trusting the supplied VCF and without an alignment step — a cheap orthogonal check that
-generalises to any candidate variant in any pipeline.
+`pipeline/genomewide/readlevel_validate.sh` streamed all eight FASTQ lanes directly from the Hub
+(never written to disk), decompressed on the fly, and counted exact 31-mer matches for the REF and
+ALT haplotypes of both alleles on both strands. **No alignment step and no variant caller are
+involved**, so this is independent of the supplied VCF.
+
+| Allele | REF | ALT | total | VAF | ALT fwd/rev | binomial p vs 0.5 | verdict |
+|---|---|---|---|---|---|---|---|
+| p.Leu737Ter (chr15:40,209,701 T>G) | 16 | 16 | 32 | **0.500** | 7 / 9 | 1.000 | **heterozygous — confirmed** |
+| p.Asn1002Lys (chr15:40,220,612 T>G) | 11 | 13 | 24 | **0.542** | 6 / 7 | 0.839 | **heterozygous — confirmed** |
+
+Both alleles are supported on both strands with no strand bias, and both VAFs are statistically
+indistinguishable from 0.5. Raw per-lane counts: `results/readlevel_kmer_counts_raw.tsv`.
+
+This is a cheap orthogonal check that generalises to any candidate variant in any pipeline.
 
 ---
 

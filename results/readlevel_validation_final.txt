@@ -1,0 +1,8 @@
+Read-level confirmation from raw FASTQs — all 8 lanes, exact 31-mer counting
+(no alignment, no variant caller; files streamed from the Hub, never written to disk)
+
+ALLELE    REF    ALT    TOTAL   VAF     ALT fwd/rev   binom p vs 0.5  VERDICT
+p.Leu737Ter 16     16     32      0.500   7/9           1.000           HETEROZYGOUS — confirmed
+p.Asn1002Lys 11     13     24      0.542   6/7           0.839           HETEROZYGOUS — confirmed
+
+Both alleles supported on BOTH strands. No strand bias. VAFs indistinguishable from 0.5.
