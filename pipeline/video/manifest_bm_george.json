@@ -1,0 +1,64 @@
+{
+  "voice": "bm_george",
+  "speed": 1.02,
+  "gap_s": 0.25,
+  "sample_rate": 24000,
+  "total_duration_s": 181.28,
+  "total_duration_mmss": "3:01",
+  "segments": [
+    {
+      "id": "s1_open",
+      "slide": 1,
+      "target_window": "0:00-0:18",
+      "file": "s1_open_bm_george.wav",
+      "duration_s": 26.12,
+      "words": 73,
+      "wpm": 167.7
+    },
+    {
+      "id": "s2_mechanism",
+      "slide": 2,
+      "target_window": "0:18-0:50",
+      "file": "s2_mechanism_bm_george.wav",
+      "duration_s": 27.3,
+      "words": 81,
+      "wpm": 178.0
+    },
+    {
+      "id": "s3_number",
+      "slide": 3,
+      "target_window": "0:50-1:30",
+      "file": "s3_number_bm_george.wav",
+      "duration_s": 32.12,
+      "words": 93,
+      "wpm": 173.7
+    },
+    {
+      "id": "s4_inversion",
+      "slide": 4,
+      "target_window": "1:30-2:20",
+      "file": "s4_inversion_bm_george.wav",
+      "duration_s": 49.48,
+      "words": 142,
+      "wpm": 172.2
+    },
+    {
+      "id": "s5_clinical",
+      "slide": 5,
+      "target_window": "2:20-2:45",
+      "file": "s5_clinical_bm_george.wav",
+      "duration_s": 32.35,
+      "words": 88,
+      "wpm": 163.2
+    },
+    {
+      "id": "s6_close",
+      "slide": 6,
+      "target_window": "2:45-2:55",
+      "file": "s6_close_bm_george.wav",
+      "duration_s": 12.65,
+      "words": 32,
+      "wpm": 151.8
+    }
+  ]
+}

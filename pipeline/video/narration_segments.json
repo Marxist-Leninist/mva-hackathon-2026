@@ -1,0 +1,52 @@
+{
+  "_meta": {
+    "source_script": "reports/pitch_script_3min_opus5.md (cowork-opus5-mva), HF mirror MarxistLeninist/mva-hackathon-2026",
+    "voice_default": "bm_george",
+    "speed": 0.95,
+    "corrections_applied": [
+      "Slide 1: 'absent from gnomAD' -> 'vanishingly rare — one allele in one and a half million'. The original is factually wrong: gnomAD v4 exomes report 15-40220612-T-G at AC=1, AN=1,461,878 (AF 6.84e-07). It is absent from gnomAD GENOMES only. Saying 'absent from gnomAD' on camera to a judging panel that can check it in thirty seconds is an unforced error.",
+      "Numbers spelled as words throughout so the TTS does not read '1.3' as 'one point three' inconsistently or '737' as digits.",
+      "'BUB1B' written phonetically as 'bub one bee' so it is not read as a single token.",
+      "'gnomAD' written as 'gnome-ay-dee'.",
+      "'BUBR1' written as 'bub-arr-one'."
+    ]
+  },
+  "segments": [
+    {
+      "id": "s1_open",
+      "slide": 1,
+      "target_window": "0:00-0:18",
+      "text": "This child has Mosaic Variegated Aneuploidy type one. Two variants in bub one bee: a stop at codon seven thirty-seven, already labelled pathogenic for this exact disease, and a novel missense at asparagine one thousand and two — one allele in one and a half million — in the pseudokinase domain. We found it ranked first genome-wide with no gene-panel prior, and confirmed it from the raw reads without trusting the variant caller."
+    },
+    {
+      "id": "s2_mechanism",
+      "slide": 2,
+      "target_window": "0:18-0:50",
+      "text": "The truncating allele makes no protein — nonsense-mediated decay destroys it. So everything this child has comes from the other copy. And the published work on that class of mutation is unusually clear: these are not broken proteins, they are scarce ones. Same messenger RNA, five to ten times less protein. Force them back up to normal levels, and the checkpoint works perfectly again. This is not a disease of a protein that doesn't function. It's a protein that doesn't last."
+    },
+    {
+      "id": "s3_number",
+      "slide": 3,
+      "target_window": "0:50-1:30",
+      "text": "That lets us put a number on it. The dose-response for bub-arr-one is a switch, not a slope. Six percent of normal, and most cells missegregate. Thirteen percent, and segregation is essentially fine. This child sits between five and ten percent. Right on the edge. To get him over the line, you need to raise one destabilised protein by one point three to two point six fold. Not restore it. Not replace the gene. Roughly double it. That's a drug-scale target — and every candidate we test has a pre-registered bar to clear."
+    },
+    {
+      "id": "s4_inversion",
+      "slide": 4,
+      "target_window": "1:30-2:20",
+      "text": "Now the part we think matters most. Every published aneuploidy-selective drug — the H S P ninety inhibitors, the A M P K activators, chloroquine — works by killing aneuploid cells preferentially. In a tumour inside a healthy patient, that difference is the whole therapy. But in this disease, the patient is the aneuploid organism. His brain, his muscle, his marrow all carry it. The therapeutic index isn't narrow. It's inverted. So that literature is a list of things to avoid, not a list of leads. And here, H S P ninety inhibitors are the worst of them — his surviving allele is the one that needs H S P ninety to fold. You would be stripping away the only working copy he has. The same logic rules out senolytics and growth hormone. And it raises a question about his current treatment."
+    },
+    {
+      "id": "s5_clinical",
+      "slide": 5,
+      "target_window": "2:20-2:45",
+      "text": "He has rhabdomyosarcoma, and rhabdomyosarcoma is treated with vincristine. Vinca alkaloids don't kill by damaging microtubules. They kill by holding a cell in mitotic arrest — an arrest maintained by the spindle checkpoint. His checkpoint is the disease. His cells slip out of arrest in about an hour, where normal cells hold indefinitely. So the prediction is that they don't die. They escape, carrying a wrecked genome. In a child with a thirty-seven percent lifetime cancer risk, that's a serious question. One plate of patient cells answers it."
+    },
+    {
+      "id": "s6_close",
+      "slide": 6,
+      "target_window": "2:45-2:55",
+      "text": "One cell system, three readouts, one pre-registered threshold. Protein up one point three fold, or it isn't a hit. Everything is public, and it runs on one C P U. Thank you."
+    }
+  ]
+}
