@@ -1,0 +1,7 @@
+data/
+*.vcf.gz
+*.tbi
+*.fastq.gz
+*.bam
+*.bai
+local_dev/
