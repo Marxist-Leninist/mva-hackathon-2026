@@ -1,13 +1,14 @@
 .PHONY: check test validate privacy
 
+PYTHON ?= python3
+
 check: test validate privacy
 
 test:
-	python -m unittest discover -s tests -v
+	$(PYTHON) -m unittest discover -s tests -v
 
 validate:
-	python scripts/validate_submission.py results/MarxistLeninist_bub1b_compound_het.csv
+	$(PYTHON) scripts/validate_submission.py results/MarxistLeninist_bub1b_compound_het.csv
 
 privacy:
-	python scripts/privacy_gate.py .
-
+	$(PYTHON) scripts/privacy_gate.py .
