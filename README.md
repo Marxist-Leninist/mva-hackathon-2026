@@ -15,7 +15,7 @@ No medicine should be given on the basis of this repository.
 | Allele | GRCh38 | Transcript consequence | Evidence status |
 |---|---|---|---|
 | 1 | `chr15:40209701 T>G` | `NM_001211.6:c.2210T>G`, `p.Leu737Ter` | High-quality heterozygous call; ClinVar P/LP; predicted NMD |
-| 2 | `chr15:40220612 T>G` | `NM_001211.6:c.3006T>G`, `p.Asn1002Lys` | High-quality heterozygous call; absent from gnomAD; exact allele is unclassified |
+| 2 | `chr15:40220612 T>G` | `NM_001211.6:c.3006T>G`, `p.Asn1002Lys` | High-quality heterozygous call; gnomAD v4 exomes AC=1 / AN=1,461,878 (AF 6.8e-07), absent from gnomAD genomes; exact allele is unclassified |
 
 The alleles are 10,911 bp apart. Short reads do not establish phase and parental
 data were not supplied, so **in trans is inferred, not proven**. The second

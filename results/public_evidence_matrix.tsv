@@ -3,7 +3,7 @@ BUB1B pair is the primary Track 1 answer	Independent exact-match analysis of the
 chr15:40209701 T>G is heterozygous	GT 0/1; AD 21,25; DP 46; GQ 99; FILTER PASS	case-derived QC	strong	Needs orthogonal confirmation
 chr15:40220612 T>G is heterozygous	GT 0/1; AD 15,13; DP 28; GQ 99; FILTER PASS	case-derived QC	strong	Needs orthogonal confirmation
 p.Leu737Ter is loss-of-function	Exon 17/23 premature stop; ClinVar P/LP; NMD expected	annotation + curated database	strong	NMD not directly measured in patient cells
-p.Asn1002Lys is a hypomorphic missense allele	Absent from gnomAD; deleterious in silico; final-exon kinase-domain location	population + computational	hypothesis	Exact allele unreported in ClinVar; function unknown
+p.Asn1002Lys is a hypomorphic missense allele	gnomAD v4 exomes AF 6.8e-07 (AC=1/AN=1461878), absent from genomes; deleterious in silico; final-exon kinase-domain location	population + computational	hypothesis	Exact allele unreported in ClinVar; function unknown
 The two variants are in trans	Recessive phenotype and viable null-plus-missense architecture	inheritance inference	unresolved	Requires parental or long-molecule phasing
 Gentamicin can rescue the nonsense allele	UGA readthrough precedent in other diseases	cross-disease pharmacology	testable hypothesis	Exact UGA-A context and NMD may prevent rescue
 Arimoclomol can stabilize p.Asn1002Lys	Heat-shock co-induction plus MVA missense-turnover mechanism	mechanistic bridge	testable hypothesis	No BUB1B or N1002K drug-rescue evidence

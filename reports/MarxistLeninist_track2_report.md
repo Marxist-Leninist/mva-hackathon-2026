@@ -9,8 +9,9 @@
 This case is best explained by a `BUB1B` null-plus-missense pair:
 
 - `p.Leu737Ter` is an NMD-competent premature stop (`UGA-A`).
-- `p.Asn1002Lys` is a full-length, gnomAD-absent missense change in the
-  C-terminal kinase/pseudokinase region.
+- `p.Asn1002Lys` is a full-length missense change in the C-terminal
+  kinase/pseudokinase region, at gnomAD v4 exome AF 6.8e-07 (AC=1 / AN=1,461,878)
+  and absent from gnomAD genomes.
 
 That architecture creates two distinct therapeutic opportunities. The first is
 to recover full-length protein from the nonsense allele. The second is to

@@ -11,8 +11,8 @@ Read it straight — no intro music, no title card longer than 3 seconds. Judges
 
 > This child has Mosaic Variegated Aneuploidy type 1. Two variants in *BUB1B* —
 > a stop at codon 737 that ClinVar already labels pathogenic for this exact disease,
-> and a novel missense at asparagine 1002, absent from gnomAD, sitting in the
-> pseudokinase domain.
+> and a novel missense at asparagine 1002 — one allele in one and a half million —
+> sitting in the pseudokinase domain.
 >
 > We found it ranked first genome-wide, with no gene-panel prior, and we confirmed
 > it from the raw reads without trusting the variant caller.
