@@ -65,10 +65,16 @@ corrected isogenic controls, and functional response.
 
 ## Current submission state
 
-The revised Track 2 Markdown report is complete. The three-minute video build is
-complete and has been technically checked, but it still needs a stable YouTube or
-Vimeo URL. Before a submission slot is used, two participant-controlled fields
-must also be finalized:
+The revised Track 2 Markdown report and a report-aligned three-minute pitch script
+are complete. The existing 179-second MP4 is technically sound but predates the
+30 August scientific reconciliation: it treats the child-specific dosage
+scenario too strongly and includes an oncology section that the revised report
+does not support. **That MP4 is superseded and must not be uploaded as the final
+pitch.** Rebuild it from `reports/pitch_script_track2_revised_20260830.md`, then
+host the reviewed copy on YouTube or Vimeo.
+
+Before a submission slot is used, two participant-controlled fields must also be
+finalized:
 
 - the exact provider plan/tier and account-level data-handling setting for each
   AI assistant used; and
@@ -99,8 +105,9 @@ the Track 2 report. Structural output is explicitly hypothesis-generating.
 - `reports/MarxistLeninist_track1_report.md` — variant analysis and limitations
 - `reports/MarxistLeninist_track2_report.md` — revised drug rationale and validation plan
 - `methods/MarxistLeninist_track2_methods_update_20260830.md` — methods/disclosure update for the revised report
-- `reports/pitch_script_3min_opus5.md` — three-minute narration source
-- `pipeline/video/` and `video/` — reproducible narration, slide, caption and video build
+- `reports/pitch_script_track2_revised_20260830.md` — canonical report-aligned pitch source
+- `reports/pitch_script_3min_opus5.md` — superseded historical pitch source
+- `pipeline/video/` and `video/` — historical narration, slides, captions and MP4; rebuild required
 - `SUBMISSION_CHECKLIST.md` — current form fields and action-time safety gates
 - `results/` — submission CSV and public evidence/provenance records
 - `scripts/` — submission validator, privacy gate, and reproducible context checks
