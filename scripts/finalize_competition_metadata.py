@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,6 +27,9 @@ README = ROOT / "README.md"
 CHECKLIST = ROOT / "SUBMISSION_CHECKLIST.md"
 STATUS = ROOT / "FINAL_STATUS.json"
 MANIFEST = ROOT / "competition" / "CANONICAL.json"
+REPORT_PDF = ROOT / "competition" / "artifacts" / "MarxistLeninist_track2_report.pdf"
+PITCH_VIDEO = ROOT / "competition" / "artifacts" / "MarxistLeninist_track2_pitch.mp4"
+VIDEO_BUILD_MANIFEST = ROOT / "competition" / "review" / "video" / "build_manifest.json"
 VERSION = "2026-08-30.4"
 
 
@@ -45,6 +49,21 @@ def write_text(path: Path, text: str) -> None:
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def replace_documented_hash(
+    text: str, artifact_path: str, digest: str, label: str
+) -> str:
+    pattern = re.compile(
+        rf"({re.escape(artifact_path)}[^\\n]*\\n[^\\n]*SHA-256\\s+`?)[0-9a-f]{{64}}(`?)"
+    )
+    updated, count = pattern.subn(rf"\g<1>{digest}\g<2>", text)
+    if count != 1:
+        raise RuntimeError(
+            f"{label}: expected one documented SHA-256 after {artifact_path}, "
+            f"found {count}"
+        )
+    return updated
 
 
 def update_report() -> None:
@@ -144,30 +163,75 @@ def update_checklist() -> None:
 
 def update_status_and_manifest() -> None:
     status = json.loads(STATUS.read_text(encoding="utf-8"))
+    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
+
     status["canonical_version"] = VERSION
-    track2 = status.setdefault("track2", {})
-    track2["ai_disclosure"] = (
+    status_track2 = status.setdefault("track2", {})
+    status_track2["ai_disclosure"] = (
         "plans verified as OpenAI ChatGPT Pro and Anthropic Claude Max 20x "
         "including Claude Code; exact account-level data-handling settings pending"
     )
-    track2.pop("synapse_dataset_citation", None)
-    track2["dataset_citation"] = (
+    status_track2.pop("synapse_dataset_citation", None)
+    status_track2["dataset_citation"] = (
         "SageBio/mva-hackathon-2026-data on Hugging Face; gated; accessed "
         "30 August 2026"
     )
-    STATUS.write_text(json.dumps(status, indent=2) + "\n", encoding="utf-8")
-    print(f"updated {STATUS.relative_to(ROOT)}")
 
-    manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     manifest["canonical_version"] = VERSION
-    report_spec = manifest["track2"]["report_markdown"]
-    report_spec["status"] = "ready"
-    report_spec["sha256"] = sha256(REPORT)
-    # Submission history, quota, SG deployment state and review blockers are
-    # authoritative manifest data. Do not replace them during artifact rebuilds.
+    manifest_track2 = manifest["track2"]
+    markdown_spec = manifest_track2["report_markdown"]
+    markdown_spec["status"] = "ready"
+    markdown_spec["sha256"] = sha256(REPORT)
+
+    artifact_specs = (
+        ("report_pdf", REPORT_PDF),
+        ("pitch_video", PITCH_VIDEO),
+    )
+    artifact_hashes: dict[str, str] = {}
+    for key, artifact in artifact_specs:
+        if not artifact.is_file():
+            raise RuntimeError(f"canonical artifact is missing: {artifact.relative_to(ROOT)}")
+        digest = sha256(artifact)
+        artifact_hashes[key] = digest
+        manifest_spec = manifest_track2[key]
+        manifest_spec["status"] = "built_unreviewed"
+        manifest_spec["sha256"] = digest
+
+        status_spec = status_track2.setdefault(key, {})
+        status_spec["path"] = manifest_spec["path"]
+        status_spec["status"] = "built_unreviewed"
+        status_spec["sha256"] = digest
+
+    if VIDEO_BUILD_MANIFEST.is_file():
+        build = json.loads(VIDEO_BUILD_MANIFEST.read_text(encoding="utf-8"))
+        duration = build.get("duration_seconds")
+        if not isinstance(duration, (int, float)) or isinstance(duration, bool):
+            raise RuntimeError("video build manifest duration_seconds is invalid")
+        status_track2["pitch_video"]["duration_seconds"] = duration
+
+    STATUS.write_text(json.dumps(status, indent=2) + "\n", encoding="utf-8")
     MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    print(f"updated {STATUS.relative_to(ROOT)}")
     print(f"updated {MANIFEST.relative_to(ROOT)}")
-    print(f"report markdown sha256={report_spec['sha256']}")
+
+    documented = (
+        ("report_pdf", manifest_track2["report_pdf"]["path"], "report PDF"),
+        ("pitch_video", manifest_track2["pitch_video"]["path"], "pitch video"),
+    )
+    for document in (README, CHECKLIST):
+        text = document.read_text(encoding="utf-8")
+        for key, artifact_path, label in documented:
+            text = replace_documented_hash(
+                text,
+                artifact_path,
+                artifact_hashes[key],
+                f"{document.name} {label}",
+            )
+        write_text(document, text)
+
+    print(f"report markdown sha256={markdown_spec['sha256']}")
+    print(f"report PDF sha256={artifact_hashes['report_pdf']}")
+    print(f"pitch video sha256={artifact_hashes['pitch_video']}")
 
 
 def main() -> int:

@@ -10,6 +10,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_PATH = ROOT / "competition" / "CANONICAL.json"
+STATUS_PATH = ROOT / "FINAL_STATUS.json"
+README_PATH = ROOT / "README.md"
+CHECKLIST_PATH = ROOT / "SUBMISSION_CHECKLIST.md"
+VIDEO_BUILD_MANIFEST_PATH = ROOT / "competition" / "review" / "video" / "build_manifest.json"
 
 
 def sha256(path: Path) -> str:
@@ -45,10 +49,9 @@ def check_artifact(label: str, spec: object, errors: list[str]) -> None:
     status = spec.get("status", "ready")
     expected = spec.get("sha256")
 
-    if status == "ready" and not path.exists():
-        errors.append(f"ready {label} is missing: {spec['path']}")
-        return
     if not path.exists():
+        if status in {"ready", "built_unreviewed"} or expected:
+            errors.append(f"{status} {label} is missing: {spec['path']}")
         return
 
     if expected:
@@ -115,6 +118,76 @@ def main() -> int:
             errors.append(f"missing track2.{key}")
         else:
             check_artifact(label, track2[key], errors)
+
+    try:
+        status = json.loads(STATUS_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"cannot parse FINAL_STATUS.json: {exc}")
+        status = {}
+
+    if status.get("canonical_version") != data.get("canonical_version"):
+        errors.append("FINAL_STATUS canonical version does not match manifest")
+
+    status_track2 = status.get("track2")
+    if not isinstance(status_track2, dict):
+        errors.append("FINAL_STATUS track2 object is missing")
+        status_track2 = {}
+
+    for key, label in (
+        ("report_pdf", "Track 2 PDF report"),
+        ("pitch_video", "Track 2 pitch video"),
+    ):
+        manifest_spec = track2.get(key)
+        status_spec = status_track2.get(key)
+        if not isinstance(manifest_spec, dict) or not isinstance(status_spec, dict):
+            errors.append(f"FINAL_STATUS {label} entry is missing")
+            continue
+        for field in ("path", "status", "sha256"):
+            if status_spec.get(field) != manifest_spec.get(field):
+                errors.append(
+                    f"FINAL_STATUS {label} {field} does not match manifest"
+                )
+
+    for document_path, label in (
+        (README_PATH, "README.md"),
+        (CHECKLIST_PATH, "SUBMISSION_CHECKLIST.md"),
+    ):
+        try:
+            document = document_path.read_text(encoding="utf-8")
+        except OSError as exc:
+            errors.append(f"cannot read {label}: {exc}")
+            continue
+        for key, artifact_label in (
+            ("report_pdf", "report PDF"),
+            ("pitch_video", "pitch video"),
+        ):
+            spec = track2.get(key)
+            digest = spec.get("sha256") if isinstance(spec, dict) else None
+            if isinstance(digest, str) and digest not in document:
+                errors.append(
+                    f"{label} does not document the canonical {artifact_label} hash"
+                )
+
+    try:
+        video_build = json.loads(
+            VIDEO_BUILD_MANIFEST_PATH.read_text(encoding="utf-8")
+        )
+    except (OSError, json.JSONDecodeError) as exc:
+        errors.append(f"cannot parse video build manifest: {exc}")
+        video_build = {}
+
+    video_spec = track2.get("pitch_video")
+    video_digest = video_spec.get("sha256") if isinstance(video_spec, dict) else None
+    if video_build.get("sha256") != video_digest:
+        errors.append("video build manifest sha256 does not match canonical video")
+
+    built_duration = video_build.get("duration_seconds")
+    status_video = status_track2.get("pitch_video")
+    status_duration = (
+        status_video.get("duration_seconds") if isinstance(status_video, dict) else None
+    )
+    if built_duration != status_duration:
+        errors.append("FINAL_STATUS video duration does not match build manifest")
 
     submission = track2.get("submission")
     if not isinstance(submission, dict):

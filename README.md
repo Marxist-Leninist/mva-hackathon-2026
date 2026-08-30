@@ -86,11 +86,11 @@ They are candidates for a later authorized submission update and remain
 **built but unreviewed**:
 
 - `competition/artifacts/MarxistLeninist_track2_report.pdf`
-  - SHA-256 `dc434c332670c7f5df9296d95b8576366386a4da094375ff36f04d205941b65e`
+  - SHA-256 `dc28529b02535edc7cfabdd6f6478ce3724d246a4d8786343b4079b2754444c8`
 - `competition/artifacts/MarxistLeninist_track2_pitch.mp4`
   - 177.267 seconds
   - 1920x1080 H.264, AAC 48 kHz
-  - SHA-256 `83d6df1c74f3615d5c65306d664946a5cfe943def4eb698737b217d6cbbf20be`
+  - SHA-256 `ccf6b4f8be2845ab28197316bb3ab9150b088e7b46c5d79e85c6aaf139d74db2`
 
 Before another submission, both exact artifacts must be reviewed, the current
 video must be hosted and watched after platform processing, the AI

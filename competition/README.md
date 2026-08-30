@@ -18,7 +18,7 @@ be silently treated as a newer source of truth.
 ## Dedicated areas
 
 - `competition/CANONICAL.json` - machine-readable source-of-truth manifest.
-- `competition/artifacts/` - final uploadable PDF and MP4 only.
+- `competition/artifacts/` - canonical PDF and MP4 candidates; both remain built but unreviewed until the release gate passes.
 - `competition/coordination/` - agent rules, workboard and hand-offs.
 - `reports/` - canonical report source plus clearly labelled supporting history.
 - `methods/` - methods disclosure and reproducibility material.
@@ -34,12 +34,16 @@ request or workboard. Humanity has already invented enough filenames ending in
 
 ## Submission rule
 
+Submission 1 is archived under `competition/history/submission-01/`. The form
+permits three Track 2 submissions, so two slots remain, and only the latest entry
+will be reviewed. The current canonical v4 artifacts have not been submitted.
+
 The release gate must pass before upload:
 
 1. Canonical manifest validates.
 2. Public-release and privacy checks pass.
 3. PDF hash matches the manifest.
 4. Video was built from the canonical pitch source and inspected.
-5. AI disclosure and Synapse citation are complete.
+5. AI account-level data-handling settings and the official gated-dataset citation are complete.
 6. Hosted video URL works without login.
 7. The participant explicitly authorizes use of a Track 2 submission slot.

@@ -15,7 +15,7 @@
     "report_pdf": {
       "path": "competition/artifacts/MarxistLeninist_track2_report.pdf",
       "status": "built_unreviewed",
-      "sha256": "dc434c332670c7f5df9296d95b8576366386a4da094375ff36f04d205941b65e"
+      "sha256": "dc28529b02535edc7cfabdd6f6478ce3724d246a4d8786343b4079b2754444c8"
     },
     "approved_drug_screen": "revised complete; preclinical only",
     "primary_screen_candidate": "azithromycin exact-context readthrough",
@@ -32,7 +32,7 @@
       "path": "competition/artifacts/MarxistLeninist_track2_pitch.mp4",
       "status": "built_unreviewed",
       "duration_seconds": 177.267,
-      "sha256": "83d6df1c74f3615d5c65306d664946a5cfe943def4eb698737b217d6cbbf20be"
+      "sha256": "ccf6b4f8be2845ab28197316bb3ab9150b088e7b46c5d79e85c6aaf139d74db2"
     },
     "pitch_video_hosting": "Submission 1 URL archived; hosting for the current canonical v4 video is pending",
     "ai_disclosure": "plans verified as OpenAI ChatGPT Pro and Anthropic Claude Max 20x including Claude Code; exact account-level data-handling settings pending",

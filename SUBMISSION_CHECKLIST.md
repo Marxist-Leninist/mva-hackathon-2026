@@ -95,7 +95,7 @@ Canonical PDF:
 
 ```text
 competition/artifacts/MarxistLeninist_track2_report.pdf
-SHA-256 dc434c332670c7f5df9296d95b8576366386a4da094375ff36f04d205941b65e
+SHA-256 dc28529b02535edc7cfabdd6f6478ce3724d246a4d8786343b4079b2754444c8
 Status built_unreviewed
 ```
 
@@ -110,7 +110,7 @@ only canonical pitch artifact.
 - [ ] Inspect the exact v4 captions and representative frames.
 - [x] Runtime 177.267 seconds, below the 180-second limit.
 - [x] 1920x1080 H.264 video, AAC mono audio at 48 kHz.
-- [x] Integrated loudness -16.71 LUFS; true peak -1.41 dBTP.
+- [ ] Measure integrated loudness and true peak on the exact v4 MP4.
 - [x] Full audio/video decode completed without errors.
 - [x] Contact sheet and representative frames generated.
 - [ ] Inspect the complete v4 video and contact sheet.
@@ -123,7 +123,7 @@ Canonical video:
 
 ```text
 competition/artifacts/MarxistLeninist_track2_pitch.mp4
-SHA-256 83d6df1c74f3615d5c65306d664946a5cfe943def4eb698737b217d6cbbf20be
+SHA-256 ccf6b4f8be2845ab28197316bb3ab9150b088e7b46c5d79e85c6aaf139d74db2
 Status built_unreviewed
 ```
 
