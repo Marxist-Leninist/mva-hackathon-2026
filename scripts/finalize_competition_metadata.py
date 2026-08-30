@@ -54,16 +54,28 @@ def sha256(path: Path) -> str:
 def replace_documented_hash(
     text: str, artifact_path: str, digest: str, label: str
 ) -> str:
-    pattern = re.compile(
-        rf"({re.escape(artifact_path)}[^\\n]*\\n[^\\n]*SHA-256\\s+`?)[0-9a-f]{{64}}(`?)"
-    )
-    updated, count = pattern.subn(rf"\g<1>{digest}\g<2>", text)
-    if count != 1:
+    lines = text.splitlines(keepends=True)
+    matches: list[tuple[int, re.Match[str]]] = []
+
+    for artifact_index, line in enumerate(lines):
+        if artifact_path not in line:
+            continue
+        for hash_index in range(artifact_index + 1, min(artifact_index + 4, len(lines))):
+            match = re.search(r"(SHA-256\s+`?)([0-9a-f]{64})(`?)", lines[hash_index])
+            if match:
+                matches.append((hash_index, match))
+                break
+
+    if len(matches) != 1:
         raise RuntimeError(
             f"{label}: expected one documented SHA-256 after {artifact_path}, "
-            f"found {count}"
+            f"found {len(matches)}"
         )
-    return updated
+
+    hash_index, match = matches[0]
+    line = lines[hash_index]
+    lines[hash_index] = line[: match.start(2)] + digest + line[match.end(2) :]
+    return "".join(lines)
 
 
 def update_report() -> None:
