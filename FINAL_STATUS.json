@@ -1,5 +1,6 @@
 {
-  "generated_at": "2026-08-30T12:56:00+01:00",
+  "generated_at": "2026-08-30T14:22:00+01:00",
+  "canonical_version": "2026-08-30.3",
   "track1": {
     "candidate_pair": "complete",
     "submission_csv": "complete",
@@ -9,7 +10,13 @@
     "orthogonal_clinical_confirmation": "recommended"
   },
   "track2": {
-    "mechanism_report": "revised complete",
+    "canonical_manifest": "competition/CANONICAL.json",
+    "mechanism_report": "revised complete and reviewed",
+    "report_pdf": {
+      "path": "competition/artifacts/MarxistLeninist_track2_report.pdf",
+      "status": "reviewed",
+      "sha256": "8ed015d441563ddcce92de07432e7767afcc5374c42998c5980b06b47b25e1ef"
+    },
     "approved_drug_screen": "revised complete; preclinical only",
     "primary_screen_candidate": "azithromycin exact-context readthrough",
     "conditional_candidate": "arimoclomol after missense-instability entry gate",
@@ -21,17 +28,29 @@
     "patient_cell_validation": "not performed",
     "clinical_efficacy": "unknown",
     "pitch_script": "revised report-aligned source complete",
-    "historical_pitch_video": "technically checked but scientifically superseded; do not submit",
-    "final_pitch_video_render": "pending rebuild from revised source",
+    "pitch_video": {
+      "path": "competition/artifacts/MarxistLeninist_track2_pitch.mp4",
+      "status": "reviewed; hosting pending",
+      "duration_seconds": 177.267,
+      "sha256": "7e12b02a90604d4c765a500a496d39405a95c17e7b15d2122f547ae7f5fd0ac8"
+    },
     "pitch_video_hosting": "pending YouTube or Vimeo URL",
     "ai_disclosure": "provider and broad plan recorded; exact account data-handling settings pending participant confirmation",
-    "synapse_dataset_citation": "pending participant insertion"
+    "synapse_dataset_citation": "pending participant insertion",
+    "sg_mva_mcp": {
+      "implementation": "tested and merged",
+      "infrastructure_commit": "28b6c54bdc76acb3b8eb8529364a8bfa9c4e5b00",
+      "sg1_deployment": "pending node-shell verification",
+      "sg2_deployment": "pending node-shell verification"
+    }
   },
   "release": {
-    "privacy_gate": "previously passed; rerun on final candidate commit",
-    "github_repository": "published",
+    "public_release_checks": "passed",
+    "single_canonical_report_gate": "passed",
+    "privacy_gate": "passed",
+    "github_repository": "published review branch",
     "track1_hackathon_submission": "awaiting explicit participant confirmation",
-    "track2_hackathon_submission": "not submitted; report complete but rebuilt/hosted video, AI settings and Synapse citation remain",
+    "track2_hackathon_submission": "not submitted; hosted video, verified AI settings, Synapse citation and explicit authorization remain",
     "track2_submission_rule": "up to 3 submissions; latest entry reviewed",
     "submission_authorized": false
   }
