@@ -2,7 +2,7 @@
   "schema_version": 1,
   "competition": "Rare Disease, Real Kid: The MVA Hackathon 2026",
   "team": "MarxistLeninist",
-  "canonical_version": "2026-08-30.2",
+  "canonical_version": "2026-08-30.3",
   "repository": "Marxist-Leninist/mva-hackathon-2026",
   "review_branch": "track2-report-2026-08-30",
   "review_pull_request": 1,
@@ -18,15 +18,15 @@
     },
     "report_pdf": {
       "path": "competition/artifacts/MarxistLeninist_track2_report.pdf",
-      "status": "building",
-      "sha256": null
+      "status": "built_unreviewed",
+      "sha256": "8ed015d441563ddcce92de07432e7767afcc5374c42998c5980b06b47b25e1ef"
     },
     "methods": "methods/MarxistLeninist_track2_methods_update_20260830.md",
     "pitch_source": "reports/pitch_script_track2_revised_20260830.md",
     "pitch_video": {
       "path": "competition/artifacts/MarxistLeninist_track2_pitch.mp4",
-      "status": "building",
-      "sha256": null
+      "status": "built_unreviewed",
+      "sha256": "7e12b02a90604d4c765a500a496d39405a95c17e7b15d2122f547ae7f5fd0ac8"
     },
     "submission_checklist": "SUBMISSION_CHECKLIST.md"
   },
