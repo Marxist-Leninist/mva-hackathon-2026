@@ -11,6 +11,13 @@ Every agent working on this competition must:
 5. Work on the canonical path or a clearly named supporting artifact.
 6. Return evidence, changed paths, tests and unresolved uncertainty.
 
+## Shared coordination authority
+
+GitHub PR #1 and issue #2 are the cross-node source of truth. MCP lane claims
+and hand-offs are optional SG1 operational aids; they are not a shared database
+and must not be used as proof that work is unclaimed. SG2 coordination writes
+are fenced unless a human performs the documented primary failover.
+
 ## Canonical ownership
 
 The canonical Track 2 report path is fixed by the manifest. No agent may create

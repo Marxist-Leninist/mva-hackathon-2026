@@ -7,7 +7,7 @@ slot.
 ## Canonical source of truth
 
 - Manifest: `competition/CANONICAL.json`
-- Canonical version: `2026-08-30.3`
+- Canonical version: `2026-08-30.4`
 - Agent protocol: `competition/coordination/AGENT_PROTOCOL.md`
 - Alternate Track 2 report sources: forbidden and checked by `make check`
 
@@ -47,11 +47,16 @@ Before submitting Track 1:
 - Pitch-video URL: **pending YouTube or Vimeo upload**
 - Notes for judges: use the reviewed text below
 
-### Current live-form rule
+### Current live-form rule and usage
 
-The Track 2 form permits up to **three submissions**. The independent panel will
-review only the **latest** entry. Earlier repository text referring to a one-shot
-submission rule is obsolete.
+The Track 2 form permits up to **three submissions**. Submission 1 has been
+received, so **two submissions remain**. The independent panel reviews only the
+**latest** entry.
+
+The Submission 1 receipt and exact supplied artifacts are archived under
+`competition/history/submission-01/`. They are historical and do not replace
+the current canonical v4 artifacts. Its YouTube URL is not the hosting URL for
+the current canonical pitch.
 
 ### Required participant-controlled fields still open
 
@@ -59,7 +64,8 @@ submission rule is obsolete.
       20x, including Claude Code.
 - [ ] Confirm and record the relevant account-level training/retention/data-
       handling setting that applied during each AI-assisted session.
-- [ ] Upload the reviewed MP4 to YouTube or Vimeo and record the stable URL.
+- [ ] After review, upload the exact canonical v4 MP4 to YouTube or Vimeo and
+      record the stable URL.
 
 Do not guess or write a generic "no training" statement without verifying the
 actual account setting.
@@ -78,9 +84,9 @@ actual account setting.
       upstream cures.
 - [x] Gentamicin is a laboratory control only.
 - [x] Report recommends no change to current oncology treatment.
-- [x] Canonical PDF rendered and visually inspected across all 16 pages.
-- [x] Extracted PDF text contains no replacement glyphs and all required
-      sections are present.
+- [ ] Visually inspect every page of the exact v4 PDF.
+- [ ] Confirm extracted v4 PDF text contains no replacement glyphs and all
+      required sections are present.
 - [x] `make check` and the privacy/single-source gates pass.
 - [ ] Reconfirm every cited 2026 source and current medicine label on the actual
       submission date.
@@ -89,7 +95,8 @@ Canonical PDF:
 
 ```text
 competition/artifacts/MarxistLeninist_track2_report.pdf
-SHA-256 8ed015d441563ddcce92de07432e7767afcc5374c42998c5980b06b47b25e1ef
+SHA-256 dc434c332670c7f5df9296d95b8576366386a4da094375ff36f04d205941b65e
+Status built_unreviewed
 ```
 
 ### Pitch freeze checks
@@ -99,12 +106,14 @@ only canonical pitch artifact.
 
 - [x] Narration regenerated from the revised script using Kokoro `bm_george`.
 - [x] Five report-aligned slides generated from the same source of truth.
-- [x] Burned captions generated and inspected.
+- [x] Burned captions generated.
+- [ ] Inspect the exact v4 captions and representative frames.
 - [x] Runtime 177.267 seconds, below the 180-second limit.
 - [x] 1920x1080 H.264 video, AAC mono audio at 48 kHz.
 - [x] Integrated loudness -16.71 LUFS; true peak -1.41 dBTP.
 - [x] Full audio/video decode completed without errors.
-- [x] Contact sheet and representative frames from every slide inspected.
+- [x] Contact sheet and representative frames generated.
+- [ ] Inspect the complete v4 video and contact sheet.
 - [x] No child-specific 5-10% level presented as measured.
 - [x] No unsupported vincristine or oncology-treatment implication.
 - [ ] Upload the exact reviewed file to YouTube or Vimeo.
@@ -114,19 +123,21 @@ Canonical video:
 
 ```text
 competition/artifacts/MarxistLeninist_track2_pitch.mp4
-SHA-256 7e12b02a90604d4c765a500a496d39405a95c17e7b15d2122f547ae7f5fd0ac8
+SHA-256 83d6df1c74f3615d5c65306d664946a5cfe943def4eb698737b217d6cbbf20be
+Status built_unreviewed
 ```
 
-### Dedicated SG coordination MCP
+### Dedicated SG competition MCP
 
 - [x] Competition-specific MCP implemented.
-- [x] Unit tests passed.
-- [x] Live Streamable HTTP initialization, tool listing and health call passed.
-- [x] Infrastructure code merged at
-      `28b6c54bdc76acb3b8eb8529364a8bfa9c4e5b00`.
-- [ ] Deploy and verify on SG1.
-- [ ] Deploy and verify on SG2.
-- [ ] Register exactly once as `SG MVA Hackathon 2026` in each applicable client.
+- [x] Twelve dedicated tools exposed, including strictly read-only
+      `mva_report` and `mva_video`.
+- [x] Deployed and verified on SG1.
+- [x] Deployed and verified on SG2.
+- [x] SG1/SG2 tool-surface parity verified.
+- [x] Registered once as backend `mva-hackathon-2026` on each node.
+- [x] SG1 is the single coordination writer; SG2 writes are fenced.
+- [x] Confirmed that the MCP has no submission capability.
 
 ### Suggested notes for judges
 
@@ -151,6 +162,6 @@ Immediately before submission:
    reviewed local file in content.
 5. Confirm the AI account-level data-handling disclosure is complete.
 6. Obtain the participant's explicit instruction for canonical version
-   `2026-08-30.3` to use a submission slot.
-7. Save the submission timestamp and a screenshot or receipt of the accepted
-   form without exposing gated data.
+   `2026-08-30.4` to use one of the two remaining submission slots.
+7. After submission, update the quota and archive the returned receipt without
+   exposing gated data.

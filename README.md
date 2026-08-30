@@ -29,7 +29,7 @@ The ready-to-upload Track 1 file is
 ## One canonical Track 2 submission
 
 The source of truth is [`competition/CANONICAL.json`](competition/CANONICAL.json),
-currently version `2026-08-30.3`. Every human or agent must read that manifest
+currently version `2026-08-30.4`. Every human or agent must read that manifest
 and [`competition/coordination/AGENT_PROTOCOL.md`](competition/coordination/AGENT_PROTOCOL.md)
 before editing competition material.
 
@@ -79,46 +79,45 @@ numbers are now explicitly labelled as **scenario analysis**, not measurements
 from this child. The real threshold must be set from patient-cell BUBR1 abundance,
 corrected isogenic controls, and functional response.
 
-## Reviewed Track 2 artifacts
+## Current Track 2 candidate artifacts
 
-The report-aligned PDF and video are built and reviewed in the dedicated upload
-area:
+Canonical version `2026-08-30.4` contains a newly built report and pitch video.
+They are candidates for a later authorized submission update and remain
+**built but unreviewed**:
 
 - `competition/artifacts/MarxistLeninist_track2_report.pdf`
-  - 16 A4 pages
-  - SHA-256 `8ed015d441563ddcce92de07432e7767afcc5374c42998c5980b06b47b25e1ef`
+  - SHA-256 `dc434c332670c7f5df9296d95b8576366386a4da094375ff36f04d205941b65e`
 - `competition/artifacts/MarxistLeninist_track2_pitch.mp4`
   - 177.267 seconds
   - 1920x1080 H.264, AAC 48 kHz
-  - Kokoro `bm_george` narration and burned captions
-  - SHA-256 `7e12b02a90604d4c765a500a496d39405a95c17e7b15d2122f547ae7f5fd0ac8`
+  - SHA-256 `83d6df1c74f3615d5c65306d664946a5cfe943def4eb698737b217d6cbbf20be`
 
-Review evidence is under `competition/review/`. The PDF was rendered and
-inspected page-by-page. The MP4 passed full decode, loudness, duration,
-resolution, codec, frame and caption checks.
+Before another submission, both exact artifacts must be reviewed, the current
+video must be hosted and watched after platform processing, the AI
+data-handling disclosure must be verified, and the participant must explicitly
+authorize use of a remaining slot.
 
-The remaining participant-controlled requirements are:
+## Track 2 submission history
 
-- confirm the exact account-level training, retention and data-handling settings
-  that applied to the OpenAI ChatGPT Pro and Anthropic Claude Max 20x sessions;
-- host the reviewed MP4 on YouTube or Vimeo; and
-- explicitly authorize the exact canonical version before a submission slot is
-  used.
+Submission 1 was received and is preserved under
+`competition/history/submission-01/`. Its exact supplied report and pitch are
+historical and do not overwrite the current canonical v4 artifacts.
 
-The live form permits up to three Track 2 submissions and reviews only the latest
-entry. No submission action is authorized by this repository.
+The form permits three Track 2 submissions. One has been used, **two remain**,
+and the judging panel reviews only the latest entry. The Submission 1 YouTube
+URL is historical; it is not the hosting URL for the current canonical video.
+No later submission is authorized by this repository.
 
-## Dedicated SG coordination MCP
+## Dedicated SG competition MCP
 
-A competition-specific MCP named `SG MVA Hackathon 2026` has been implemented,
-live-protocol-tested and merged into the private SG infrastructure repository at
-commit `28b6c54bdc76acb3b8eb8529364a8bfa9c4e5b00`.
+The competition-specific `SG MVA Hackathon 2026` MCP is deployed and verified
+on SG1 and SG2 with identical 12-tool surfaces. The artifact-specific
+`mva_report` and `mva_video` tools are strictly read-only and expose the
+canonical artifacts, Submission 1 archive and remaining quota.
 
-It provides the canonical manifest, artifact hashes, shared workboard, expiring
-agent lane claims, structured hand-offs, repository validation and a release
-gate. It has no Hackathon submission tool. Deployment and parity verification on
-SG1 and SG2 remain a node-shell operation tracked in the private infrastructure
-workboard.
+GitHub PR #1 and issue #2 remain the shared workboard. SG1 is the single
+coordination writer and SG2 is a fenced standby, preventing node-local claims
+from diverging. The MCP deliberately has no Hackathon submission capability.
 
 ## Reproduce public checks
 
@@ -140,7 +139,8 @@ the Track 2 report. Structural output is explicitly hypothesis-generating.
 ## Repository map
 
 - `competition/CANONICAL.json` - machine-readable source of truth
-- `competition/artifacts/` - reviewed uploadable PDF and MP4
+- `competition/artifacts/` - current candidate PDF and MP4
+- `competition/history/` - immutable prior-submission receipts and supplied artifacts
 - `competition/review/` - contact sheet, captions and build evidence
 - `competition/coordination/` - mandatory multi-agent protocol
 - `reports/MarxistLeninist_track1_report.md` - variant analysis and limitations

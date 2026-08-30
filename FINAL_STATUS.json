@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T14:22:00+01:00",
+  "generated_at": "2026-08-30T15:24:00+01:00",
   "canonical_version": "2026-08-30.4",
   "track1": {
     "candidate_pair": "complete",
@@ -11,11 +11,11 @@
   },
   "track2": {
     "canonical_manifest": "competition/CANONICAL.json",
-    "mechanism_report": "revised complete and reviewed",
+    "mechanism_report": "revised source complete; v4 rendered candidate built_unreviewed",
     "report_pdf": {
       "path": "competition/artifacts/MarxistLeninist_track2_report.pdf",
-      "status": "reviewed",
-      "sha256": "8ed015d441563ddcce92de07432e7767afcc5374c42998c5980b06b47b25e1ef"
+      "status": "built_unreviewed",
+      "sha256": "dc434c332670c7f5df9296d95b8576366386a4da094375ff36f04d205941b65e"
     },
     "approved_drug_screen": "revised complete; preclinical only",
     "primary_screen_candidate": "azithromycin exact-context readthrough",
@@ -30,19 +30,32 @@
     "pitch_script": "revised report-aligned source complete",
     "pitch_video": {
       "path": "competition/artifacts/MarxistLeninist_track2_pitch.mp4",
-      "status": "reviewed; hosting pending",
+      "status": "built_unreviewed",
       "duration_seconds": 177.267,
-      "sha256": "7e12b02a90604d4c765a500a496d39405a95c17e7b15d2122f547ae7f5fd0ac8"
+      "sha256": "83d6df1c74f3615d5c65306d664946a5cfe943def4eb698737b217d6cbbf20be"
     },
-    "pitch_video_hosting": "pending YouTube or Vimeo URL",
+    "pitch_video_hosting": "Submission 1 URL archived; hosting for the current canonical v4 video is pending",
     "ai_disclosure": "plans verified as OpenAI ChatGPT Pro and Anthropic Claude Max 20x including Claude Code; exact account-level data-handling settings pending",
     "sg_mva_mcp": {
-      "implementation": "tested and merged",
-      "infrastructure_commit": "28b6c54bdc76acb3b8eb8529364a8bfa9c4e5b00",
-      "sg1_deployment": "pending node-shell verification",
-      "sg2_deployment": "pending node-shell verification"
+      "implementation": "deployed and verified",
+      "infrastructure_commit": "97212e6ad989677cd0ccbf07f36df915a807e134",
+      "backend_name": "mva-hackathon-2026",
+      "tool_count": 12,
+      "sg1_deployment": "verified_primary",
+      "sg2_deployment": "verified_fenced_standby",
+      "surface_parity": "verified",
+      "submission_capability": false
     },
-    "dataset_citation": "SageBio/mva-hackathon-2026-data on Hugging Face; gated; accessed 30 August 2026"
+    "dataset_citation": "SageBio/mva-hackathon-2026-data on Hugging Face; gated; accessed 30 August 2026",
+    "submission": {
+      "latest_received": 1,
+      "receipt": "competition/history/submission-01/receipt.json",
+      "maximum": 3,
+      "used": 1,
+      "remaining": 2,
+      "review_policy": "latest_entry_only",
+      "current_canonical_version_submitted": false
+    }
   },
   "release": {
     "public_release_checks": "passed",
@@ -50,8 +63,8 @@
     "privacy_gate": "passed",
     "github_repository": "published review branch",
     "track1_hackathon_submission": "awaiting explicit participant confirmation",
-    "track2_hackathon_submission": "not submitted; hosted video, verified AI account-level settings and explicit authorization remain",
-    "track2_submission_rule": "up to 3 submissions; latest entry reviewed",
+    "track2_hackathon_submission": "Submission 1 received; canonical version 2026-08-30.4 has not been submitted",
+    "track2_submission_rule": "maximum 3 submissions; 1 used, 2 remaining; latest entry reviewed",
     "submission_authorized": false
   }
 }

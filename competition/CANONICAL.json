@@ -28,7 +28,24 @@
       "status": "built_unreviewed",
       "sha256": "83d6df1c74f3615d5c65306d664946a5cfe943def4eb698737b217d6cbbf20be"
     },
-    "submission_checklist": "SUBMISSION_CHECKLIST.md"
+    "submission_checklist": "SUBMISSION_CHECKLIST.md",
+    "submission": {
+      "quota": {
+        "maximum": 3,
+        "used": 1,
+        "remaining": 2
+      },
+      "review_policy": "latest_entry_only",
+      "latest_received": {
+        "number": 1,
+        "status": "received",
+        "receipt": "competition/history/submission-01/receipt.json",
+        "repository_url": "https://github.com/Marxist-Leninist/mva-hackathon-2026/",
+        "pitch_video_url": "https://www.youtube.com/watch?v=ufjhnl6siFA",
+        "report_filename": "MarxistLeninist_track2_report.pdf"
+      },
+      "current_canonical_version_submitted": false
+    }
   },
   "supporting_only": [
     "reports/ADDENDUM_genomewide_dosage_and_contraindications.md",
@@ -45,8 +62,34 @@
     "submission_requires_explicit_participant_authorization": true
   },
   "open_blockers": [
+    "Review the exact canonical v4 report PDF and pitch video",
     "Confirm exact account-level training, retention and data-control settings for OpenAI and Anthropic sessions",
-    "Upload final video to YouTube or Vimeo",
-    "Obtain explicit participant authorization before using a submission slot"
-  ]
+    "Upload and watch the current canonical v4 video on YouTube or Vimeo",
+    "Obtain explicit participant authorization before using either remaining submission slot"
+  ],
+  "sg_mva_mcp": {
+    "name": "SG MVA Hackathon 2026",
+    "backend_name": "mva-hackathon-2026",
+    "status": "deployed_verified",
+    "infrastructure_commit": "97212e6ad989677cd0ccbf07f36df915a807e134",
+    "tool_count": 12,
+    "tools": [
+      "mva_health",
+      "mva_sync",
+      "mva_status",
+      "mva_manifest",
+      "mva_claim",
+      "mva_handoff",
+      "mva_workboard",
+      "mva_artifacts",
+      "mva_report",
+      "mva_video",
+      "mva_validate",
+      "mva_release_gate"
+    ],
+    "sg1": "verified_primary",
+    "sg2": "verified_fenced_standby",
+    "surface_parity": "verified",
+    "submission_capability": false
+  }
 }
