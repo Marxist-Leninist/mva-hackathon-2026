@@ -13,11 +13,13 @@
   "track2": {
     "report_markdown": {
       "path": "reports/MarxistLeninist_track2_report.md",
+      "status": "ready",
       "sha256": "ce4fa8f7cae80c68cf20ea458fbccd8a271b7273089dc64fc21d17d3d11f578f"
     },
     "report_pdf": {
       "path": "competition/artifacts/MarxistLeninist_track2_report.pdf",
-      "sha256": "156e9a5894b464cf4be50288551a022923f5e7656aa4746201c754a49d470263"
+      "status": "building",
+      "sha256": null
     },
     "methods": "methods/MarxistLeninist_track2_methods_update_20260830.md",
     "pitch_source": "reports/pitch_script_track2_revised_20260830.md",
