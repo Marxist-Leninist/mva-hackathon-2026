@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "competition": "Rare Disease, Real Kid: MVA Hackathon 2026",
+  "team": "MarxistLeninist",
+  "canonical_version": "2026-08-30.2",
+  "repository": "Marxist-Leninist/mva-hackathon-2026",
+  "review_branch": "track2-report-2026-08-30",
+  "review_pull_request": 1,
+  "track1": {
+    "prediction": "results/MarxistLeninist_bub1b_compound_het.csv",
+    "report": "reports/MarxistLeninist_track1_report.md"
+  },
+  "track2": {
+    "report_markdown": {
+      "path": "reports/MarxistLeninist_track2_report.md",
+      "sha256": "ce4fa8f7cae80c68cf20ea458fbccd8a271b7273089dc64fc21d17d3d11f578f"
+    },
+    "report_pdf": {
+      "path": "competition/artifacts/MarxistLeninist_track2_report.pdf",
+      "sha256": "156e9a5894b464cf4be50288551a022923f5e7656aa4746201c754a49d470263"
+    },
+    "methods": "methods/MarxistLeninist_track2_methods_update_20260830.md",
+    "pitch_source": "reports/pitch_script_track2_revised_20260830.md",
+    "pitch_video": {
+      "path": "competition/artifacts/MarxistLeninist_track2_pitch.mp4",
+      "status": "building",
+      "sha256": null
+    },
+    "submission_checklist": "SUBMISSION_CHECKLIST.md"
+  },
+  "supporting_only": [
+    "reports/ADDENDUM_genomewide_dosage_and_contraindications.md",
+    "reports/pitch_script.md",
+    "reports/pitch_script_3min_opus5.md",
+    "methods/MarxistLeninist_methods_description_form.xlsx"
+  ],
+  "rules": {
+    "single_track2_report": true,
+    "alternate_reports_forbidden": true,
+    "supporting_documents_must_not_be_submitted_as_report": true,
+    "all_agents_must_read_manifest_first": true,
+    "all_changes_must_target_the_canonical_paths": true,
+    "submission_requires_explicit_participant_authorization": true
+  },
+  "open_blockers": [
+    "Confirm exact AI provider plan/tier and account-level data-handling settings",
+    "Insert exact Synapse dataset citation",
+    "Complete and inspect final report-aligned video",
+    "Upload final video to YouTube or Vimeo",
+    "Obtain explicit participant authorization before using a submission slot"
+  ]
+}
