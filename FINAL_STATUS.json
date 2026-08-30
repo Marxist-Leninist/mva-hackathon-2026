@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-30T12:46:00+01:00",
+  "generated_at": "2026-08-30T12:56:00+01:00",
   "track1": {
     "candidate_pair": "complete",
     "submission_csv": "complete",
@@ -20,8 +20,9 @@
     "laboratory_control": "gentamicin",
     "patient_cell_validation": "not performed",
     "clinical_efficacy": "unknown",
-    "pitch_script": "complete",
-    "pitch_video_render": "complete and technically checked",
+    "pitch_script": "revised report-aligned source complete",
+    "historical_pitch_video": "technically checked but scientifically superseded; do not submit",
+    "final_pitch_video_render": "pending rebuild from revised source",
     "pitch_video_hosting": "pending YouTube or Vimeo URL",
     "ai_disclosure": "provider and broad plan recorded; exact account data-handling settings pending participant confirmation",
     "synapse_dataset_citation": "pending participant insertion"
@@ -30,7 +31,7 @@
     "privacy_gate": "previously passed; rerun on final candidate commit",
     "github_repository": "published",
     "track1_hackathon_submission": "awaiting explicit participant confirmation",
-    "track2_hackathon_submission": "not submitted; report complete but hosted video, AI settings and Synapse citation remain",
+    "track2_hackathon_submission": "not submitted; report complete but rebuilt/hosted video, AI settings and Synapse citation remain",
     "track2_submission_rule": "up to 3 submissions; latest entry reviewed",
     "submission_authorized": false
   }
