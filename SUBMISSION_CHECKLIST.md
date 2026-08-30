@@ -4,6 +4,13 @@ Nothing in this file authorizes a submission. Re-check the live form and obtain
 the participant's explicit confirmation immediately before using a submission
 slot.
 
+## Canonical source of truth
+
+- Manifest: `competition/CANONICAL.json`
+- Canonical version: `2026-08-30.3`
+- Agent protocol: `competition/coordination/AGENT_PROTOCOL.md`
+- Alternate Track 2 report sources: forbidden and checked by `make check`
+
 ## Track 1
 
 - Team / display name: `MarxistLeninist`
@@ -33,9 +40,11 @@ Before submitting Track 1:
 
 - Team / display name: `MarxistLeninist`
 - GitHub repository: `https://github.com/Marxist-Leninist/mva-hackathon-2026`
-- Report file: `reports/MarxistLeninist_track2_report.md`
-- Canonical pitch source: `reports/pitch_script_track2_revised_20260830.md`
-- Pitch-video URL: **pending rebuilt YouTube or Vimeo upload**
+- Report file: `competition/artifacts/MarxistLeninist_track2_report.pdf`
+- Editable report source: `reports/MarxistLeninist_track2_report.md`
+- Pitch source: `reports/pitch_script_track2_revised_20260830.md`
+- Pitch file: `competition/artifacts/MarxistLeninist_track2_pitch.mp4`
+- Pitch-video URL: **pending YouTube or Vimeo upload**
 - Notes for judges: use the reviewed text below
 
 ### Current live-form rule
@@ -51,47 +60,74 @@ submission rule is obsolete.
 - [ ] Confirm the exact provider plan/tier used for each AI assistant.
 - [ ] Confirm and record the relevant account-level training/retention/data-
       handling setting that applied during each AI-assisted session.
-- [ ] Rebuild the pitch video from the revised script, upload it to YouTube or
-      Vimeo, and record the stable URL.
+- [ ] Upload the reviewed MP4 to YouTube or Vimeo and record the stable URL.
 
 Do not guess or write a generic "no training" statement without verifying the
 actual account setting.
 
 ### Report freeze checks
 
-- [ ] Confirm the report says phase is inferred, not proven.
-- [ ] Confirm `p.Asn1002Lys` is described as a VUS with unmeasured function.
-- [ ] Confirm the child-specific 5-10% BUBR1 level and 1.3-2.6-fold rescue target
-      are labelled scenario analysis, not patient measurements.
-- [ ] Confirm azithromycin is described as an ex vivo lead screen, not a drug
+- [x] One canonical report source only.
+- [x] Report says phase is inferred, not proven.
+- [x] `p.Asn1002Lys` is described as a VUS with unmeasured function.
+- [x] The child-specific 5-10% BUBR1 level and 1.3-2.6-fold rescue target are
+      labelled scenario analysis, not patient measurements.
+- [x] Azithromycin is described as an ex vivo lead screen, not a drug
       recommendation.
-- [ ] Confirm arimoclomol is conditional on demonstrating missense instability.
-- [ ] Confirm sirolimus and acetylcysteine are downstream benchmarks/comparators,
-      not upstream cures.
-- [ ] Confirm gentamicin is a laboratory control only.
-- [ ] Confirm the report recommends no change to current oncology treatment.
-- [ ] Run `make check` and `make privacy` on the exact candidate commit.
-- [ ] Confirm every cited 2026 source and current medicine label remains accurate
-      on the submission date.
+- [x] Arimoclomol is conditional on demonstrating missense instability.
+- [x] Sirolimus and acetylcysteine are downstream benchmarks/comparators, not
+      upstream cures.
+- [x] Gentamicin is a laboratory control only.
+- [x] Report recommends no change to current oncology treatment.
+- [x] Canonical PDF rendered and visually inspected across all 16 pages.
+- [x] Extracted PDF text contains no replacement glyphs and all required
+      sections are present.
+- [x] `make check` and the privacy/single-source gates pass.
+- [ ] Reconfirm every cited 2026 source and current medicine label on the actual
+      submission date.
 
-### Pitch status and rebuild checks
+Canonical PDF:
 
-The historical 179-second MP4 is technically valid but **superseded**. It
-predates the final report reconciliation, treats the child-specific BUBR1 dosage
-scenario as though measured, and includes an oncology section not supported by
-the revised report. Do not upload it as the final pitch.
+```text
+competition/artifacts/MarxistLeninist_track2_report.pdf
+SHA-256 8ed015d441563ddcce92de07432e7767afcc5374c42998c5980b06b47b25e1ef
+```
 
-- [x] Revised report-aligned pitch script written.
-- [x] Revised script says phase is unproven and `p.Asn1002Lys` is a VUS.
-- [x] Revised script removes the unmeasured child-specific 5-10% claim.
-- [x] Revised script removes the previous vincristine treatment implication.
-- [ ] Regenerate TTS narration from the revised script.
-- [ ] Regenerate slides and burned-in captions from the same source of truth.
-- [ ] Rebuild to no more than 180 seconds at 1920x1080 H.264 with AAC audio.
-- [ ] Measure integrated loudness/true peak and verify full decode.
-- [ ] Inspect one frame from every slide and compare narration against captions.
-- [ ] Watch the rebuilt local MP4 from beginning to end.
-- [ ] Upload to YouTube or Vimeo and watch the hosted copy after processing.
+### Pitch freeze checks
+
+The historical MP4 remains superseded. The **new report-aligned video** is the
+only canonical pitch artifact.
+
+- [x] Narration regenerated from the revised script using Kokoro `bm_george`.
+- [x] Five report-aligned slides generated from the same source of truth.
+- [x] Burned captions generated and inspected.
+- [x] Runtime 177.267 seconds, below the 180-second limit.
+- [x] 1920x1080 H.264 video, AAC mono audio at 48 kHz.
+- [x] Integrated loudness -16.71 LUFS; true peak -1.41 dBTP.
+- [x] Full audio/video decode completed without errors.
+- [x] Contact sheet and representative frames from every slide inspected.
+- [x] No child-specific 5-10% level presented as measured.
+- [x] No unsupported vincristine or oncology-treatment implication.
+- [ ] Upload the exact reviewed file to YouTube or Vimeo.
+- [ ] Watch the hosted copy from beginning to end after platform processing.
+
+Canonical video:
+
+```text
+competition/artifacts/MarxistLeninist_track2_pitch.mp4
+SHA-256 7e12b02a90604d4c765a500a496d39405a95c17e7b15d2122f547ae7f5fd0ac8
+```
+
+### Dedicated SG coordination MCP
+
+- [x] Competition-specific MCP implemented.
+- [x] Unit tests passed.
+- [x] Live Streamable HTTP initialization, tool listing and health call passed.
+- [x] Infrastructure code merged at
+      `28b6c54bdc76acb3b8eb8529364a8bfa9c4e5b00`.
+- [ ] Deploy and verify on SG1.
+- [ ] Deploy and verify on SG2.
+- [ ] Register exactly once as `SG MVA Hackathon 2026` in each applicable client.
 
 ### Suggested notes for judges
 
@@ -110,10 +146,12 @@ the revised report. Do not upload it as the final pitch.
 Immediately before submission:
 
 1. Re-open the live Track 2 form and confirm the quota and fields.
-2. Compare the default-branch report, methods material, and rebuilt video against
-   the reviewed versions.
-3. Confirm the hosted video URL is accessible without login.
-4. Confirm the AI disclosure and Synapse citation are complete.
-5. Obtain the participant's explicit instruction to use a submission slot.
-6. Save the submission timestamp and a screenshot or receipt of the accepted
+2. Run `make check` on the exact commit to be referenced.
+3. Verify the PDF and local MP4 hashes against `competition/CANONICAL.json`.
+4. Confirm the hosted video URL is accessible without login and matches the
+   reviewed local file in content.
+5. Confirm the AI disclosure and Synapse citation are complete.
+6. Obtain the participant's explicit instruction for canonical version
+   `2026-08-30.3` to use a submission slot.
+7. Save the submission timestamp and a screenshot or receipt of the accepted
    form without exposing gated data.
