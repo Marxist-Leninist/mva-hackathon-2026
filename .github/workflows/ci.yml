@@ -18,7 +18,7 @@ jobs:
       - run: make check
 
   build-canonical-track2:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/track2-report-2026-08-30'
+    if: github.event_name == 'pull_request' && github.head_ref == 'track2-report-2026-08-30'
     needs: check
     runs-on: ubuntu-latest
     timeout-minutes: 30
@@ -26,6 +26,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - uses: actions/setup-python@v5
         with:
@@ -122,7 +123,7 @@ jobs:
       - name: Upload review bundle
         uses: actions/upload-artifact@v4
         with:
-          name: mva-track2-canonical-${{ github.sha }}
+          name: mva-track2-canonical-${{ github.event.pull_request.head.sha }}
           if-no-files-found: error
           retention-days: 30
           path: |
@@ -134,6 +135,8 @@ jobs:
             competition/CANONICAL.json
 
       - name: Commit generated canonical artifacts
+        env:
+          TARGET_BRANCH: ${{ github.head_ref }}
         run: |
           git config user.name "MVA Competition Builder"
           git config user.email "actions@users.noreply.github.com"
@@ -142,5 +145,5 @@ jobs:
             echo "No artifact changes to commit"
           else
             git commit -m "Build canonical Track 2 report and pitch artifacts [skip ci]"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            git push origin "HEAD:${TARGET_BRANCH}"
           fi
