@@ -55,9 +55,8 @@ submission rule is obsolete.
 
 ### Required participant-controlled fields still open
 
-- [ ] Insert the exact Synapse dataset citation supplied with the controlled
-      Hackathon data-access record.
-- [ ] Confirm the exact provider plan/tier used for each AI assistant.
+- [x] Provider plans verified: OpenAI ChatGPT Pro and Anthropic Claude Max
+      20x, including Claude Code.
 - [ ] Confirm and record the relevant account-level training/retention/data-
       handling setting that applied during each AI-assisted session.
 - [ ] Upload the reviewed MP4 to YouTube or Vimeo and record the stable URL.
@@ -150,7 +149,7 @@ Immediately before submission:
 3. Verify the PDF and local MP4 hashes against `competition/CANONICAL.json`.
 4. Confirm the hosted video URL is accessible without login and matches the
    reviewed local file in content.
-5. Confirm the AI disclosure and Synapse citation are complete.
+5. Confirm the AI account-level data-handling disclosure is complete.
 6. Obtain the participant's explicit instruction for canonical version
    `2026-08-30.3` to use a submission slot.
 7. Save the submission timestamp and a screenshot or receipt of the accepted

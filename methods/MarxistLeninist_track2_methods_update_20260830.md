@@ -146,16 +146,18 @@ readthrough-context code, dosage-scenario model, privacy checks, report source,
 and pitch-video build materials. Gated genomic and identifiable clinical data are
 not redistributed.
 
+The controlled challenge data source is the gated Hugging Face dataset `SageBio/mva-hackathon-2026-data`, accessed 30 August 2026; gated data are not redistributed.
+
 ## 9. AI-assistance disclosure
 
-OpenAI ChatGPT Pro (GPT-5.6 Pro) and Anthropic Claude Code/Claude models under a
-paid individual subscription were used for drafting, code review, candidate
-generation and adversarial scientific review.
+OpenAI ChatGPT Pro (GPT-5.6 Pro) and Anthropic Claude Max 20x, including
+Claude Code, were used for drafting, code review, candidate generation and
+adversarial scientific review.
 
-**Participant action before submission:** confirm and insert the exact Anthropic
-plan/tier and the account-level training, retention or data-control setting that
-applied to both providers during the relevant sessions. No generic "no training"
-claim should be made without verifying those settings.
+**Participant action before submission:** confirm and record the account-level
+training, retention or data-control setting that applied to both providers during
+the relevant sessions. No generic "no training" claim should be made without
+verifying those settings.
 
 ## 10. Track 2 abstract (under 500 words)
 

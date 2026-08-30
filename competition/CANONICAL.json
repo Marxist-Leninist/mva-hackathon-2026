@@ -2,7 +2,7 @@
   "schema_version": 1,
   "competition": "Rare Disease, Real Kid: The MVA Hackathon 2026",
   "team": "MarxistLeninist",
-  "canonical_version": "2026-08-30.3",
+  "canonical_version": "2026-08-30.4",
   "repository": "Marxist-Leninist/mva-hackathon-2026",
   "review_branch": "track2-report-2026-08-30",
   "review_pull_request": 1,
@@ -14,19 +14,19 @@
     "report_markdown": {
       "path": "reports/MarxistLeninist_track2_report.md",
       "status": "ready",
-      "sha256": "dc48ea30b28d48f2952981e2a144b556f923ca293822dcaf958ff0e88aab5c63"
+      "sha256": "e1dc58c729b6c7c9f3a17b464accdbd997f2461f88ea0247cfb7ad79a0660ab3"
     },
     "report_pdf": {
       "path": "competition/artifacts/MarxistLeninist_track2_report.pdf",
-      "status": "reviewed",
-      "sha256": "8ed015d441563ddcce92de07432e7767afcc5374c42998c5980b06b47b25e1ef"
+      "status": "built_unreviewed",
+      "sha256": "dc434c332670c7f5df9296d95b8576366386a4da094375ff36f04d205941b65e"
     },
     "methods": "methods/MarxistLeninist_track2_methods_update_20260830.md",
     "pitch_source": "reports/pitch_script_track2_revised_20260830.md",
     "pitch_video": {
       "path": "competition/artifacts/MarxistLeninist_track2_pitch.mp4",
-      "status": "reviewed",
-      "sha256": "7e12b02a90604d4c765a500a496d39405a95c17e7b15d2122f547ae7f5fd0ac8"
+      "status": "built_unreviewed",
+      "sha256": "83d6df1c74f3615d5c65306d664946a5cfe943def4eb698737b217d6cbbf20be"
     },
     "submission_checklist": "SUBMISSION_CHECKLIST.md"
   },
@@ -45,8 +45,7 @@
     "submission_requires_explicit_participant_authorization": true
   },
   "open_blockers": [
-    "Confirm exact AI provider plan/tier and account-level data-handling settings",
-    "Insert exact Synapse dataset citation",
+    "Confirm exact account-level training, retention and data-control settings for OpenAI and Anthropic sessions",
     "Upload final video to YouTube or Vimeo",
     "Obtain explicit participant authorization before using a submission slot"
   ]

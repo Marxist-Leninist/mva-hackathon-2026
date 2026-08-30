@@ -99,9 +99,8 @@ resolution, codec, frame and caption checks.
 
 The remaining participant-controlled requirements are:
 
-- confirm the exact provider plan/tier and account-level data-handling setting
-  for every AI assistant used;
-- insert the exact Synapse dataset citation;
+- confirm the exact account-level training, retention and data-handling settings
+  that applied to the OpenAI ChatGPT Pro and Anthropic Claude Max 20x sessions;
 - host the reviewed MP4 on YouTube or Vimeo; and
 - explicitly authorize the exact canonical version before a submission slot is
   used.
@@ -162,6 +161,8 @@ The gated genome, phenotype document, read evidence, sample-wide annotations,
 and intermediate files are deliberately absent. The repository publishes only
 the minimum derived facts needed for the competition. Run `make privacy` before
 every public commit.
+
+The controlled data source is the gated Hugging Face dataset `SageBio/mva-hackathon-2026-data`, accessed 30 August 2026.
 
 ## Acknowledgement
 

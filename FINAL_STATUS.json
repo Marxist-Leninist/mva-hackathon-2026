@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-08-30T14:22:00+01:00",
-  "canonical_version": "2026-08-30.3",
+  "canonical_version": "2026-08-30.4",
   "track1": {
     "candidate_pair": "complete",
     "submission_csv": "complete",
@@ -35,14 +35,14 @@
       "sha256": "7e12b02a90604d4c765a500a496d39405a95c17e7b15d2122f547ae7f5fd0ac8"
     },
     "pitch_video_hosting": "pending YouTube or Vimeo URL",
-    "ai_disclosure": "provider and broad plan recorded; exact account data-handling settings pending participant confirmation",
-    "synapse_dataset_citation": "pending participant insertion",
+    "ai_disclosure": "plans verified as OpenAI ChatGPT Pro and Anthropic Claude Max 20x including Claude Code; exact account-level data-handling settings pending",
     "sg_mva_mcp": {
       "implementation": "tested and merged",
       "infrastructure_commit": "28b6c54bdc76acb3b8eb8529364a8bfa9c4e5b00",
       "sg1_deployment": "pending node-shell verification",
       "sg2_deployment": "pending node-shell verification"
-    }
+    },
+    "dataset_citation": "SageBio/mva-hackathon-2026-data on Hugging Face; gated; accessed 30 August 2026"
   },
   "release": {
     "public_release_checks": "passed",
@@ -50,7 +50,7 @@
     "privacy_gate": "passed",
     "github_repository": "published review branch",
     "track1_hackathon_submission": "awaiting explicit participant confirmation",
-    "track2_hackathon_submission": "not submitted; hosted video, verified AI settings, Synapse citation and explicit authorization remain",
+    "track2_hackathon_submission": "not submitted; hosted video, verified AI account-level settings and explicit authorization remain",
     "track2_submission_rule": "up to 3 submissions; latest entry reviewed",
     "submission_authorized": false
   }

@@ -395,7 +395,7 @@ Raw genomic files, genome-scale genotype tables, and identifiable clinical recor
 
 ## AI-assistance disclosure
 
-OpenAI ChatGPT Pro (GPT-5.6 Pro) and Anthropic Claude Code/Claude models under a paid individual subscription were used for drafting, code review, candidate generation, and adversarial scientific review. **The exact account-level model-training and retention/data-control settings active during those sessions were not recorded in the repository and must be inserted by the participant before submission.** No claim of "no training" is made without that verification.
+OpenAI ChatGPT Pro (GPT-5.6 Pro) and Anthropic Claude Max 20x, including Claude Code, were used for drafting, code review, candidate generation, and adversarial scientific review. **The exact account-level model-training, retention, and data-control settings active during those sessions were not recorded in the repository and must be verified by the participant before submission.** No claim of "no training" is made without that verification.
 
 # 12. Patient-centred interpretation
 
@@ -414,7 +414,7 @@ This work was made possible through the Hackathon, organized by Sage Bionetworks
 
 # Dataset citation
 
-**Participant action before submission:** insert the exact Synapse dataset citation supplied with the controlled Hackathon data-access record. The repository deliberately does not reproduce gated data.
+Sage Bionetworks. *Rare Disease, Real Kid: MVA Hackathon 2026 - Dataset*. Hugging Face dataset `SageBio/mva-hackathon-2026-data`, accessed 30 August 2026. https://huggingface.co/datasets/SageBio/mva-hackathon-2026-data. Access is gated; the dataset is listed under CC BY 4.0 and remains subject to the Hackathon data-use conditions. The repository deliberately does not reproduce gated data.
 
 # References
 
