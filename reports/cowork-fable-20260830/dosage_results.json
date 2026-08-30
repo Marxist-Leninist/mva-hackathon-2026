@@ -1,0 +1,78 @@
+{
+  "n": 400000,
+  "baseline_f_median": 0.3251572918435468,
+  "strategies": {
+    "RT-SM": {
+      "median_r": 0.0018525149258356646,
+      "p_r_gt_0_10": 0.0,
+      "p_rel_gain_20pc": 0.0,
+      "p_carrier_equiv": 0.0
+    },
+    "RT-SM+": {
+      "median_r": 0.008775394594584693,
+      "p_r_gt_0_10": 0.0,
+      "p_rel_gain_20pc": 0.01734,
+      "p_carrier_equiv": 0.0
+    },
+    "ACE": {
+      "median_r": 0.04076017455160532,
+      "p_r_gt_0_10": 0.083845,
+      "p_rel_gain_20pc": 0.3447575,
+      "p_carrier_equiv": 0.0
+    },
+    "ACE+": {
+      "median_r": 0.1928238847159044,
+      "p_r_gt_0_10": 0.79378,
+      "p_rel_gain_20pc": 0.894815,
+      "p_carrier_equiv": 0.00137
+    },
+    "ASO-ES": {
+      "median_r": 0.23458852194484897,
+      "p_r_gt_0_10": 0.784585,
+      "p_rel_gain_20pc": 0.8595975,
+      "p_carrier_equiv": 0.0711625
+    },
+    "ASO-ESn": {
+      "median_r": 0.1614242190437285,
+      "p_r_gt_0_10": 0.60109,
+      "p_rel_gain_20pc": 0.6652175,
+      "p_carrier_equiv": 0.048325
+    }
+  },
+  "sensitivity": {
+    "RT-SM+": [
+      [
+        "E_sm",
+        0.917
+      ],
+      [
+        "T_ptc+ASO",
+        0.291
+      ],
+      [
+        "S_trp",
+        0.227
+      ]
+    ],
+    "ACE+": [
+      [
+        "E_ace",
+        0.936
+      ],
+      [
+        "T_ptc+ASO",
+        0.323
+      ]
+    ],
+    "ASO-ES": [
+      [
+        "S_del",
+        0.843
+      ],
+      [
+        "P_skip",
+        0.475
+      ]
+    ]
+  }
+}

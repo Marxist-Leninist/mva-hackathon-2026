@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" width="900" height="560" font-family="Helvetica, Arial, sans-serif">
+  <style>
+    .box  { fill:#ffffff; stroke:#37414d; stroke-width:1.4; }
+    .lead { fill:#eef4fb; stroke:#2f5d8c; stroke-width:1.8; }
+    .gate { fill:#fdf3e3; stroke:#b07423; stroke-width:1.6; }
+    .now  { fill:#eef7ef; stroke:#3d7a4c; stroke-width:1.6; }
+    .rej  { fill:#f7eeee; stroke:#9c4a4a; stroke-width:1.4; }
+    .t    { font-size:12.5px; fill:#1d2530; }
+    .tb   { font-size:12.5px; fill:#1d2530; font-weight:bold; }
+    .ts   { font-size:11px; fill:#48525f; }
+    .hd   { font-size:13.5px; font-weight:bold; fill:#1d2530; }
+    .ar   { stroke:#5a6673; stroke-width:1.4; fill:none; marker-end:url(#a); }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#5a6673"/>
+    </marker>
+  </defs>
+
+  <text x="14" y="22" class="hd">Figure 1 — Development plan and go/no-go gates for BUB1B p.Leu737Ter</text>
+
+  <!-- Row 0: genotype -->
+  <rect x="14" y="38" width="872" height="46" rx="4" class="lead"/>
+  <text x="26" y="57" class="tb">Genotype</text>
+  <text x="98" y="57" class="t">c.2210T&gt;G p.Leu737Ter — codon 737 TTA→TGA — premature stop is UGA, tetranucleotide UGAA, exon 17/23</text>
+  <text x="98" y="74" class="ts">In-trans: c.3006T&gt;G p.Asn1002Lys (pseudokinase domain, retains full-length protein) · PTC lies in an unstructured KARD–pseudokinase linker</text>
+
+  <!-- Phase 0 -->
+  <rect x="14" y="104" width="418" height="150" rx="4" class="box"/>
+  <text x="26" y="124" class="tb">Phase 0 — patient-cell tractability panel (wk 1–12)</text>
+  <text x="26" y="144" class="t">Proband fibroblasts / LCLs. Arms: vehicle · G418 · gentamicin ·</text>
+  <text x="26" y="161" class="t">DAP ± NMD inhibitor · TLN468 · SRI-41315 · NV848 ·</text>
+  <text x="26" y="178" class="t">Peh 2026 UGAA hits · <tspan font-weight="bold">NMD inhibitor ALONE (safety arm)</tspan></text>
+  <text x="26" y="200" class="ts">Readouts: targeted MS for Trp at residue 737 · full-length BubR1 western vs</text>
+  <text x="26" y="215" class="ts">WT standard curve · BUB1B transcript · PCS rate, micronuclei, mitotic timing,</text>
+  <text x="26" y="230" class="ts">kinetochore BubR1/Cdc20 · cytotoxicity at every dose</text>
+  <text x="26" y="247" class="ts">In parallel: confirm phase · chemo/radiosensitivity panel · obtain Peh compounds</text>
+
+  <!-- Gate 0 -->
+  <rect x="452" y="104" width="434" height="60" rx="4" class="gate"/>
+  <text x="464" y="124" class="tb">GATE 0 → 1</text>
+  <text x="464" y="142" class="t">≥2% full-length BubR1 with MS-confirmed Trp at 737, AND a measurable</text>
+  <text x="464" y="157" class="t">fall in PCS rate, AND no functional worsening in the NMD-alone arm</text>
+
+  <!-- Hazard callout -->
+  <rect x="452" y="176" width="434" height="90" rx="4" class="rej"/>
+  <text x="464" y="195" class="tb">Novel hazard tested here</text>
+  <text x="464" y="213" class="t">The truncated protein retains TPR, KEN, GLEBS and KARD but loses</text>
+  <text x="464" y="228" class="t">the pseudokinase domain. NMD inhibition alone may stabilise a</text>
+  <text x="464" y="243" class="t"><tspan font-weight="bold">dominant-negative</tspan> species competing for Bub3/Cdc20.</text>
+  <text x="464" y="259" class="ts">If confirmed, the NMD arm is dropped and everything moves to suppressor tRNA.</text>
+
+  <!-- Phase 1 -->
+  <rect x="14" y="274" width="418" height="104" rx="4" class="lead"/>
+  <text x="26" y="294" class="tb">Phase 1 — suppressor tRNA design (mo 3–12)</text>
+  <text x="26" y="314" class="t">UGA suppressor tRNA charged with <tspan font-weight="bold">leucine</tspan> — restores the</text>
+  <text x="26" y="331" class="t">exact wild-type residue. PERT screening framework across all</text>
+  <text x="26" y="348" class="t">418 human tRNA genes, or AAV-delivered construct.</text>
+  <text x="26" y="368" class="ts">Validate in proband cells; ribosome profiling for readthrough at natural stops.</text>
+
+  <!-- Gate 1 -->
+  <rect x="452" y="274" width="434" height="60" rx="4" class="gate"/>
+  <text x="464" y="294" class="tb">GATE 1 → 2</text>
+  <text x="464" y="312" class="t">≥10% restoration of wild-type BubR1, no detectable readthrough at</text>
+  <text x="464" y="327" class="t">natural stop codons, no significant proteomic perturbation</text>
+
+  <!-- Phase 2 -->
+  <rect x="14" y="398" width="418" height="118" rx="4" class="box"/>
+  <text x="26" y="418" class="tb">Phase 2 — in vivo, genotype-faithful (mo 12–30)</text>
+  <text x="26" y="438" class="t">Build <tspan font-style="italic">BubR1</tspan><tspan baseline-shift="super" font-size="9">L737X/N1002K</tspan> knock-in, following the Sieben 2020</text>
+  <text x="26" y="455" class="t">humanised MVA allelic series.</text>
+  <text x="26" y="475" class="ts">Endpoints: tumour incidence and latency (primary safety gate) · echo, ECG,</text>
+  <text x="26" y="490" class="ts">cardiac histology · interphase FISH aneuploidy across tissues · behaviour and</text>
+  <text x="26" y="505" class="ts">dendritic spine morphology (mandatory for any FTSJ1-directed agent) · lifespan</text>
+
+  <!-- Gate 2 -->
+  <rect x="452" y="398" width="434" height="60" rx="4" class="gate"/>
+  <text x="464" y="418" class="tb">GATE 2 → 3</text>
+  <text x="464" y="436" class="t">Phenotype improvement with <tspan font-weight="bold">no increase in tumour incidence</tspan></text>
+  <text x="464" y="451" class="t">and no neurodevelopmental signal</text>
+
+  <!-- Now box -->
+  <rect x="452" y="472" width="434" height="70" rx="4" class="now"/>
+  <text x="464" y="492" class="tb">Independent of all gates — do now</text>
+  <text x="464" y="510" class="t">1. Add ECG + echocardiography to the existing 3–4-monthly surveillance</text>
+  <text x="464" y="527" class="t">2. Issue the written contraindication card to his clinical team</text>
+
+  <!-- arrows -->
+  <path class="ar" d="M223 254 L223 272"/>
+  <path class="ar" d="M223 378 L223 396"/>
+  <path class="ar" d="M432 134 L450 134"/>
+  <path class="ar" d="M432 304 L450 304"/>
+  <path class="ar" d="M432 428 L450 428"/>
+</svg>
