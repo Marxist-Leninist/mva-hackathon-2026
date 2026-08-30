@@ -33,6 +33,9 @@ jobs:
           python-version: "3.11"
           cache: pip
 
+      - name: Finalize authoritative competition metadata
+        run: python scripts/finalize_competition_metadata.py
+
       - name: Install system dependencies
         run: |
           sudo apt-get update
@@ -87,6 +90,9 @@ jobs:
           pdfinfo competition/artifacts/MarxistLeninist_track2_report.pdf
           pdftotext competition/artifacts/MarxistLeninist_track2_report.pdf /tmp/report.txt
           test "$(wc -w < /tmp/report.txt)" -gt 3000
+          grep -q "SageBio/mva-hackathon-2026-data" /tmp/report.txt
+          ! grep -q "insert the exact Synapse dataset citation" /tmp/report.txt
+          grep -q "Anthropic Claude Max 20x" /tmp/report.txt
           ffprobe -v error -show_entries \
             format=duration:stream=codec_name,codec_type,width,height,sample_rate \
             -of json competition/artifacts/MarxistLeninist_track2_pitch.mp4
@@ -105,16 +111,20 @@ jobs:
           def sha(path):
               return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
+          markdown = data['track2']['report_markdown']
           report = data['track2']['report_pdf']
           video = data['track2']['pitch_video']
+          markdown['status'] = 'ready'
+          markdown['sha256'] = sha(markdown['path'])
           report['status'] = 'built_unreviewed'
           report['sha256'] = sha(report['path'])
           video['status'] = 'built_unreviewed'
           video['sha256'] = sha(video['path'])
-          data['canonical_version'] = '2026-08-30.3'
+          data['canonical_version'] = '2026-08-30.4'
           manifest_path.write_text(json.dumps(data, indent=2) + '\n')
-          print('report', report['sha256'])
-          print('video ', video['sha256'])
+          print('markdown', markdown['sha256'])
+          print('report  ', report['sha256'])
+          print('video   ', video['sha256'])
           PY
 
       - name: Run repository and single-source gates
@@ -133,17 +143,27 @@ jobs:
             competition/review/video/captions.ass
             competition/review/video/build_manifest.json
             competition/CANONICAL.json
+            reports/MarxistLeninist_track2_report.md
+            methods/MarxistLeninist_track2_methods_update_20260830.md
 
-      - name: Commit generated canonical artifacts
+      - name: Commit generated canonical artifacts and reconciled metadata
         env:
           TARGET_BRANCH: ${{ github.head_ref }}
         run: |
           git config user.name "MVA Competition Builder"
           git config user.email "actions@users.noreply.github.com"
-          git add competition/artifacts competition/review/video competition/CANONICAL.json
+          git add \
+            competition/artifacts \
+            competition/review/video \
+            competition/CANONICAL.json \
+            reports/MarxistLeninist_track2_report.md \
+            methods/MarxistLeninist_track2_methods_update_20260830.md \
+            README.md \
+            SUBMISSION_CHECKLIST.md \
+            FINAL_STATUS.json
           if git diff --cached --quiet; then
-            echo "No artifact changes to commit"
+            echo "No artifact or metadata changes to commit"
           else
-            git commit -m "Build canonical Track 2 report and pitch artifacts [skip ci]"
+            git commit -m "Finalize canonical Track 2 metadata and artifacts [skip ci]"
             git push origin "HEAD:${TARGET_BRANCH}"
           fi
