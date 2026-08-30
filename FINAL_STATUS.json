@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T05:33:36Z",
+  "generated_at": "2026-08-30T12:46:00+01:00",
   "track1": {
     "candidate_pair": "complete",
     "submission_csv": "complete",
@@ -9,17 +9,29 @@
     "orthogonal_clinical_confirmation": "recommended"
   },
   "track2": {
-    "mechanism_report": "complete draft",
-    "approved_drug_shortlist": "complete draft",
+    "mechanism_report": "revised complete",
+    "approved_drug_screen": "revised complete; preclinical only",
+    "primary_screen_candidate": "azithromycin exact-context readthrough",
+    "conditional_candidate": "arimoclomol after missense-instability entry gate",
+    "downstream_benchmarks": [
+      "sirolimus",
+      "acetylcysteine"
+    ],
+    "laboratory_control": "gentamicin",
     "patient_cell_validation": "not performed",
     "clinical_efficacy": "unknown",
-    "pitch_script": "complete draft",
-    "pitch_video": "not recorded"
+    "pitch_script": "complete",
+    "pitch_video_render": "complete and technically checked",
+    "pitch_video_hosting": "pending YouTube or Vimeo URL",
+    "ai_disclosure": "provider and broad plan recorded; exact account data-handling settings pending participant confirmation",
+    "synapse_dataset_citation": "pending participant insertion"
   },
   "release": {
-    "privacy_gate": "passed",
+    "privacy_gate": "previously passed; rerun on final candidate commit",
     "github_repository": "published",
-    "track1_hackathon_submission": "awaiting user confirmation",
-    "track2_hackathon_submission": "not ready; video and final review required"
+    "track1_hackathon_submission": "awaiting explicit participant confirmation",
+    "track2_hackathon_submission": "not submitted; report complete but hosted video, AI settings and Synapse citation remain",
+    "track2_submission_rule": "up to 3 submissions; latest entry reviewed",
+    "submission_authorized": false
   }
 }
