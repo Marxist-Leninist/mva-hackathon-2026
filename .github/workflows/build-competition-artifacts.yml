@@ -7,6 +7,8 @@ on:
       - track2-report-2026-08-30
     paths:
       - .github/workflows/build-competition-artifacts.yml
+      - scripts/finalize_competition_metadata.py
+      - scripts/validate_competition_manifest.py
       - reports/MarxistLeninist_track2_report.md
       - reports/pitch_script_track2_revised_20260830.md
       - pipeline/competition_video/**
