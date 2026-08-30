@@ -1,0 +1,49 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,DejaVu Sans,42,&H00F8FBFF,&H000000FF,&H00101724,&H80050A16,-1,0,0,0,100,100,0,0,1,3,1,2,120,120,42,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.38,0:00:05.31,Caption,,0,0,0,,This child has Mosaic Variegated Aneuploidy and two heterozygous variants\\Nin BUB1B.
+Dialogue: 0,0:00:05.31,0:00:08.60,Caption,,0,0,0,,One is a premature stop at leucine 737.
+Dialogue: 0,0:00:08.60,0:00:16.42,Caption,,0,0,0,,The other is an ultra-rare missense change at asparagine 1002, seen once\\Namong about 1.46 million gnomAD exome alleles.
+Dialogue: 0,0:00:16.42,0:00:22.17,Caption,,0,0,0,,We confirmed both from all eight raw-read lanes without trusting the\\Nsupplied variant caller.
+Dialogue: 0,0:00:22.17,0:00:29.99,Caption,,0,0,0,,But short reads do not prove they are in trans, and the missense variant\\Nhas never been functionally tested.
+Dialogue: 0,0:00:29.99,0:00:32.46,Caption,,0,0,0,,Those uncertainties shape the whole proposal.
+Dialogue: 0,0:00:33.46,0:00:37.77,Caption,,0,0,0,,BUBR1 helps hold the spindle checkpoint and stabilize chromosome\\Nattachment.
+Dialogue: 0,0:00:37.77,0:00:46.41,Caption,,0,0,0,,Published MVA cells show that some truncating alleles lose their\\Ntranscript, while some C-terminal missense proteins turn over too quickly.
+Dialogue: 0,0:00:46.41,0:00:49.43,Caption,,0,0,0,,Raising selected low-abundance mutants restored checkpoint function.
+Dialogue: 0,0:00:49.43,0:00:53.75,Caption,,0,0,0,,That does not prove this child's missense protein is unstable.
+Dialogue: 0,0:00:53.75,0:00:58.50,Caption,,0,0,0,,It could be unstable, stable but defective, or even functionally neutral.
+Dialogue: 0,0:00:58.50,0:01:06.27,Caption,,0,0,0,,So the first experiment is molecular diagnosis: phase the variants,\\Nmeasure allele-specific RNA, protein abundance, half-life, and checkpoint
+Dialogue: 0,0:01:06.27,0:01:06.71,Caption,,0,0,0,,function.
+Dialogue: 0,0:01:07.70,0:01:15.90,Caption,,0,0,0,,If the biological substrate exists, our lead approved-drug screen is\\Nazithromycin against the exact UGA-A stop context.
+Dialogue: 0,0:01:15.90,0:01:18.80,Caption,,0,0,0,,A reporter signal is not enough.
+Dialogue: 0,0:01:18.80,0:01:26.03,Caption,,0,0,0,,We require full-length stop-allele BUBR1, mass-spectrometric\\Nidentification of the inserted residue, and functional rescue near
+Dialogue: 0,0:01:26.03,0:01:28.44,Caption,,0,0,0,,exposure achieved in approved use.
+Dialogue: 0,0:01:28.44,0:01:30.85,Caption,,0,0,0,,Arimoclomol is second, but conditional.
+Dialogue: 0,0:01:30.85,0:01:38.57,Caption,,0,0,0,,It enters only if p.Asn1002Lys is first shown to be a short-lived,\\Nchaperone-responsive, and recoverable protein.
+Dialogue: 0,0:01:38.57,0:01:41.94,Caption,,0,0,0,,No publication shows that arimoclomol rescues BUBR1.
+Dialogue: 0,0:01:41.94,0:01:50.14,Caption,,0,0,0,,Sirolimus is only an autophagy benchmark, acetylcysteine only a\\Nbiomarker-gated redox comparator, and gentamicin only a laboratory
+Dialogue: 0,0:01:50.14,0:01:51.10,Caption,,0,0,0,,readthrough control.
+Dialogue: 0,0:01:52.10,0:01:54.66,Caption,,0,0,0,,The central safety problem is unusual.
+Dialogue: 0,0:01:54.66,0:02:01.47,Caption,,0,0,0,,A drug may make an aneuploid culture look healthier simply by helping an\\Nabnormal clone survive.
+Dialogue: 0,0:02:01.47,0:02:04.88,Caption,,0,0,0,,That is not rescue in a cancer-predisposition syndrome.
+Dialogue: 0,0:02:04.88,0:02:12.55,Caption,,0,0,0,,Our primary endpoint is therefore the rate of newly generated\\Nchromosome-segregation errors, confirmed by live imaging and single-cell
+Dialogue: 0,0:02:12.55,0:02:13.40,Caption,,0,0,0,,copy-number profiling.
+Dialogue: 0,0:02:13.40,0:02:19.79,Caption,,0,0,0,,Every candidate must improve at least two orthogonal functional outcomes\\Nand pass a rescue-versus-clone-safety index.
+Dialogue: 0,0:02:19.79,0:02:27.45,Caption,,0,0,0,,We reject anything that expands pre-existing aneuploid clones, increases\\Nmicronuclei or DNA damage, weakens immune surveillance, or needs
+Dialogue: 0,0:02:27.45,0:02:28.30,Caption,,0,0,0,,non-repurposable exposure.
+Dialogue: 0,0:02:29.30,0:02:34.23,Caption,,0,0,0,,A positive result gives a precise, independently reproducible path toward\\Npharmacology and toxicology.
+Dialogue: 0,0:02:34.23,0:02:36.51,Caption,,0,0,0,,A negative result is also valuable.
+Dialogue: 0,0:02:36.51,0:02:44.47,Caption,,0,0,0,,It tells us whether the barrier is NMD, stop context, the inserted amino\\Nacid, intrinsic missense dysfunction, or downstream tissue stress.
+Dialogue: 0,0:02:44.47,0:02:50.16,Caption,,0,0,0,,This is not a treatment recommendation and proposes no dose or change to\\Ncurrent care.
+Dialogue: 0,0:02:50.16,0:02:55.85,Caption,,0,0,0,,It is a falsifiable route from two uncertain alleles to a small,\\Nsafety-aware experimental programme.
+Dialogue: 0,0:02:55.85,0:02:56.60,Caption,,0,0,0,,Thank you.

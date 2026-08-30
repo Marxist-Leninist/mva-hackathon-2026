@@ -1,0 +1,31 @@
+{
+  "artifact": "MarxistLeninist_track2_pitch.mp4",
+  "sha256": "ccf6b4f8be2845ab28197316bb3ab9150b088e7b46c5d79e85c6aaf139d74db2",
+  "duration_seconds": 177.267,
+  "resolution": [
+    1920,
+    1080
+  ],
+  "video_codec": "h264",
+  "audio_codec": "aac",
+  "audio_sample_rate": 48000,
+  "tts_engine": "kokoro",
+  "voice": "bm_george",
+  "effective_speed": 1.1846660610389297,
+  "slide_durations_seconds": [
+    33.075,
+    34.25,
+    44.4,
+    37.2,
+    28.3
+  ],
+  "checks": {
+    "duration_le_180": true,
+    "resolution_1920x1080": true,
+    "video_h264": true,
+    "audio_aac": true,
+    "audio_48khz": true
+  },
+  "source_pitch": "reports/pitch_script_track2_revised_20260830.md",
+  "source_report": "reports/MarxistLeninist_track2_report.md"
+}

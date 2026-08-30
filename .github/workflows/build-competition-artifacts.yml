@@ -1,0 +1,140 @@
+name: build-canonical-track2-artifacts
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - track2-report-2026-08-30
+    paths:
+      - .github/workflows/build-competition-artifacts.yml
+      - scripts/finalize_competition_metadata.py
+      - scripts/validate_competition_manifest.py
+      - reports/MarxistLeninist_track2_report.md
+      - reports/pitch_script_track2_revised_20260830.md
+      - pipeline/competition_video/**
+
+permissions:
+  contents: read
+
+concurrency:
+  group: canonical-track2-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ffmpeg espeak-ng poppler-utils fonts-dejavu-core \
+            libpango-1.0-0 libpangoft2-1.0-0 libgdk-pixbuf-2.0-0
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install \
+            kokoro soundfile numpy pillow markdown pyyaml weasyprint
+
+      - name: Restore readable video builder
+        run: |
+          mkdir -p /tmp/mva-build
+          base64 -d pipeline/competition_video/build_video.py.gz.b64 \
+            | gzip -dc > /tmp/mva-build/build_video.py
+          python -m py_compile /tmp/mva-build/build_video.py
+
+      - name: Build report-aligned pitch video
+        run: |
+          rm -rf /tmp/mva-video
+          python /tmp/mva-build/build_video.py \
+            --outdir /tmp/mva-video \
+            --engine kokoro \
+            --voice bm_george \
+            --speed 1.03
+
+      - name: Render canonical PDF
+        run: |
+          mkdir -p competition/artifacts competition/review/video
+          python pipeline/competition_video/render_report.py \
+            reports/MarxistLeninist_track2_report.md \
+            competition/artifacts/MarxistLeninist_track2_report.pdf
+
+      - name: Install canonical video and review evidence
+        run: |
+          cp /tmp/mva-video/MarxistLeninist_track2_pitch.mp4 \
+            competition/artifacts/MarxistLeninist_track2_pitch.mp4
+          cp /tmp/mva-video/MarxistLeninist_track2_pitch_contact_sheet.png \
+            competition/review/video/contact_sheet.png
+          cp /tmp/mva-video/MarxistLeninist_track2_pitch_captions.ass \
+            competition/review/video/captions.ass
+          cp /tmp/mva-video/video_build_manifest.json \
+            competition/review/video/build_manifest.json
+
+      - name: Technical verification
+        run: |
+          test -s competition/artifacts/MarxistLeninist_track2_report.pdf
+          test -s competition/artifacts/MarxistLeninist_track2_pitch.mp4
+          pdfinfo competition/artifacts/MarxistLeninist_track2_report.pdf
+          pdftotext competition/artifacts/MarxistLeninist_track2_report.pdf /tmp/report.txt
+          test "$(wc -w < /tmp/report.txt)" -gt 3000
+          ffprobe -v error -show_entries \
+            format=duration:stream=codec_name,codec_type,width,height,sample_rate \
+            -of json competition/artifacts/MarxistLeninist_track2_pitch.mp4
+          ffmpeg -v error -i competition/artifacts/MarxistLeninist_track2_pitch.mp4 \
+            -f null -
+
+      - name: Update canonical hashes and build states
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+
+          root = Path('.')
+          manifest_path = root / 'competition/CANONICAL.json'
+          data = json.loads(manifest_path.read_text())
+
+          def sha(path):
+              return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+
+          report = data['track2']['report_pdf']
+          video = data['track2']['pitch_video']
+          report['status'] = 'built_unreviewed'
+          report['sha256'] = sha(report['path'])
+          video['status'] = 'built_unreviewed'
+          video['sha256'] = sha(video['path'])
+          data['canonical_version'] = '2026-08-30.4'
+          manifest_path.write_text(json.dumps(data, indent=2) + '\n')
+          print('report', report['sha256'])
+          print('video ', video['sha256'])
+          PY
+
+      - name: Reconcile authoritative artifact metadata
+        run: python scripts/finalize_competition_metadata.py
+
+      - name: Run repository and single-source gates
+        run: make check
+
+      - name: Upload review bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: mva-track2-canonical-${{ github.sha }}
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            competition/artifacts/MarxistLeninist_track2_report.pdf
+            competition/artifacts/MarxistLeninist_track2_pitch.mp4
+            competition/review/video/contact_sheet.png
+            competition/review/video/captions.ass
+            competition/review/video/build_manifest.json
+            competition/CANONICAL.json

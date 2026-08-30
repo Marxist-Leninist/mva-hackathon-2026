@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "competition": "Rare Disease, Real Kid: The MVA Hackathon 2026",
+  "team": "MarxistLeninist",
+  "canonical_version": "2026-08-30.4",
+  "repository": "Marxist-Leninist/mva-hackathon-2026",
+  "review_branch": "track2-report-2026-08-30",
+  "review_pull_request": 1,
+  "track1": {
+    "prediction": "results/MarxistLeninist_bub1b_compound_het.csv",
+    "report": "reports/MarxistLeninist_track1_report.md"
+  },
+  "track2": {
+    "report_markdown": {
+      "path": "reports/MarxistLeninist_track2_report.md",
+      "status": "ready",
+      "sha256": "e1dc58c729b6c7c9f3a17b464accdbd997f2461f88ea0247cfb7ad79a0660ab3"
+    },
+    "report_pdf": {
+      "path": "competition/artifacts/MarxistLeninist_track2_report.pdf",
+      "status": "built_unreviewed",
+      "sha256": "dc28529b02535edc7cfabdd6f6478ce3724d246a4d8786343b4079b2754444c8"
+    },
+    "methods": "methods/MarxistLeninist_track2_methods_update_20260830.md",
+    "pitch_source": "reports/pitch_script_track2_revised_20260830.md",
+    "pitch_video": {
+      "path": "competition/artifacts/MarxistLeninist_track2_pitch.mp4",
+      "status": "built_unreviewed",
+      "sha256": "ccf6b4f8be2845ab28197316bb3ab9150b088e7b46c5d79e85c6aaf139d74db2"
+    },
+    "submission_checklist": "SUBMISSION_CHECKLIST.md",
+    "submission": {
+      "quota": {
+        "maximum": 3,
+        "used": 1,
+        "remaining": 2
+      },
+      "review_policy": "latest_entry_only",
+      "latest_received": {
+        "number": 1,
+        "status": "received",
+        "receipt": "competition/history/submission-01/receipt.json",
+        "repository_url": "https://github.com/Marxist-Leninist/mva-hackathon-2026/",
+        "pitch_video_url": "https://www.youtube.com/watch?v=ufjhnl6siFA",
+        "report_filename": "MarxistLeninist_track2_report.pdf"
+      },
+      "current_canonical_version_submitted": false
+    }
+  },
+  "supporting_only": [
+    "reports/ADDENDUM_genomewide_dosage_and_contraindications.md",
+    "reports/pitch_script.md",
+    "reports/pitch_script_3min_opus5.md",
+    "methods/MarxistLeninist_methods_description_form.xlsx"
+  ],
+  "rules": {
+    "single_track2_report": true,
+    "alternate_reports_forbidden": true,
+    "supporting_documents_must_not_be_submitted_as_report": true,
+    "all_agents_must_read_manifest_first": true,
+    "all_changes_must_target_the_canonical_paths": true,
+    "submission_requires_explicit_participant_authorization": true
+  },
+  "open_blockers": [
+    "Review the exact canonical v4 report PDF and pitch video",
+    "Confirm exact account-level training, retention and data-control settings for OpenAI and Anthropic sessions",
+    "Upload and watch the current canonical v4 video on YouTube or Vimeo",
+    "Obtain explicit participant authorization before using either remaining submission slot"
+  ],
+  "sg_mva_mcp": {
+    "name": "SG MVA Hackathon 2026",
+    "backend_name": "mva-hackathon-2026",
+    "status": "deployed_verified",
+    "infrastructure_commit": "97212e6ad989677cd0ccbf07f36df915a807e134",
+    "tool_count": 12,
+    "tools": [
+      "mva_health",
+      "mva_sync",
+      "mva_status",
+      "mva_manifest",
+      "mva_claim",
+      "mva_handoff",
+      "mva_workboard",
+      "mva_artifacts",
+      "mva_report",
+      "mva_video",
+      "mva_validate",
+      "mva_release_gate"
+    ],
+    "sg1": "verified_primary",
+    "sg2": "verified_fenced_standby",
+    "surface_parity": "verified",
+    "submission_capability": false
+  }
+}

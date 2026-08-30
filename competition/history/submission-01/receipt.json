@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "competition": "Rare Disease, Real Kid: The MVA Hackathon 2026",
+  "track": 2,
+  "submission_number": 1,
+  "status": "received",
+  "receipt_recorded_date": "2026-08-30",
+  "participant": {
+    "username": "marxistleninist",
+    "display_name": "MarxistLeninist"
+  },
+  "form_submission": {
+    "repository_url": "https://github.com/Marxist-Leninist/mva-hackathon-2026/",
+    "pitch_video_url": "https://www.youtube.com/watch?v=ufjhnl6siFA",
+    "report_filename": "MarxistLeninist_track2_report.pdf"
+  },
+  "archive": {
+    "report": {
+      "path": "competition/history/submission-01/MarxistLeninist_track2_report.pdf",
+      "size_bytes": 86432,
+      "sha256": "156e9a5894b464cf4be50288551a022923f5e7656aa4746201c754a49d470263"
+    },
+    "pitch_source_video": {
+      "path": "competition/history/submission-01/MVA_Track2_pitch_MarxistLeninist.mp4",
+      "size_bytes": 7937856,
+      "duration_seconds": 179.1,
+      "sha256": "3c9be7bc5d7434387c4f451800b81cad2b6db5f1b35ec03ab6478f7e9df3aa0b",
+      "hosted_copy_byte_identity_verified": false
+    }
+  },
+  "quota_after_submission": {
+    "maximum": 3,
+    "used": 1,
+    "remaining": 2
+  },
+  "review_policy": "latest_entry_only",
+  "canonical_relation": {
+    "classification": "historical_submission",
+    "current_canonical_version": "2026-08-30.4",
+    "current_canonical_version_submitted": false
+  },
+  "known_issues": [
+    "The archived pitch presents Track 1 rather than the current Track 2 drug-repositioning proposal.",
+    "The archived report contains unresolved AI data-handling and exact dataset-citation placeholders."
+  ]
+}

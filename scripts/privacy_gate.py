@@ -15,12 +15,23 @@ BANNED_SUFFIXES = {
     ".vcf", ".bcf", ".tbi", ".csi", ".bam", ".bai", ".cram", ".crai",
     ".fastq", ".fq", ".gvcf", ".ped", ".fam", ".docx",
 }
+
+# Public, reviewable submission artifacts. These are skipped for UTF-8 secret
+# scanning because they are binary, but remain subject to an explicit size cap.
+ALLOWED_PUBLIC_BINARY_SUFFIXES = {
+    ".png", ".jpg", ".jpeg", ".webp",
+    ".mp3", ".wav", ".m4a", ".mp4",
+    ".xlsx", ".pdf",
+}
+
 SECRET_PATTERNS = {
     "Hugging Face token": re.compile(r"hf_[A-Za-z0-9]{20,}"),
     "GitHub token": re.compile(r"gh[opsu]_[A-Za-z0-9]{20,}"),
     "private key": re.compile(r"BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY"),
 }
-MAX_PUBLIC_FILE_BYTES = 5 * 1024 * 1024
+
+MAX_PUBLIC_TEXT_FILE_BYTES = 5 * 1024 * 1024
+MAX_PUBLIC_BINARY_FILE_BYTES = 25 * 1024 * 1024
 
 
 def iter_public_files(root: Path):
@@ -36,20 +47,32 @@ def check(root: Path) -> list[str]:
         relative = path.relative_to(root)
         if any(part in BANNED_DIRECTORIES for part in relative.parts[:-1]):
             errors.append(f"banned directory: {relative}")
+
+        suffix = path.suffix.lower()
         suffixes = "".join(path.suffixes).lower()
-        if path.suffix.lower() in BANNED_SUFFIXES or any(
+        if suffix in BANNED_SUFFIXES or any(
             suffixes.endswith(item + ".gz") for item in BANNED_SUFFIXES
         ):
             errors.append(f"banned genomic/private extension: {relative}")
-        if path.stat().st_size > MAX_PUBLIC_FILE_BYTES:
-            errors.append(f"file exceeds 5 MiB public limit: {relative}")
+            continue
+
+        if suffix in ALLOWED_PUBLIC_BINARY_SUFFIXES:
+            if path.stat().st_size > MAX_PUBLIC_BINARY_FILE_BYTES:
+                errors.append(f"public binary exceeds 25 MiB limit: {relative}")
+            continue
+
+        if path.stat().st_size > MAX_PUBLIC_TEXT_FILE_BYTES:
+            errors.append(f"public text file exceeds 5 MiB limit: {relative}")
+            continue
 
         if relative.as_posix() == "scripts/privacy_gate.py":
             continue
         try:
             text = path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
-            errors.append(f"unexpected binary file: {relative}")
+            errors.append(
+                f"unexpected binary file (extension not allowlisted): {relative}"
+            )
             continue
         for label, pattern in SECRET_PATTERNS.items():
             if pattern.search(text):
@@ -78,4 +101,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

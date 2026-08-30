@@ -1,57 +1,128 @@
-# Allele-resolved rescue screening for BUB1B-associated MVA1
+# Allele-resolved rescue screening for candidate BUB1B-associated MVA1
 
 This repository contains the public, reproducible submission package for the
-2026 **Rare Disease, Real Kid: MVA Hackathon**. It has two linked outputs:
+2026 **Rare Disease, Real Kid: The MVA Hackathon**. It has two linked outputs:
 
-1. A Track 1 prediction of a compound-heterozygous `BUB1B` pair.
-2. A Track 2 proposal that tests upstream rescue of each allele before testing
-   downstream protection from aneuploidy-induced stress.
+1. A Track 1 prediction of a candidate biallelic `BUB1B` pair.
+2. A Track 2 proposal for a falsifiable, exposure-aware patient-cell drug screen.
 
 The result is a research hypothesis, not a cure or a treatment recommendation.
-No medicine should be given on the basis of this repository.
+No medicine, dose, off-label use, or change to current oncology care follows
+from this repository.
 
 ## Headline result
 
 | Allele | GRCh38 | Transcript consequence | Evidence status |
 |---|---|---|---|
 | 1 | `chr15:40209701 T>G` | `NM_001211.6:c.2210T>G`, `p.Leu737Ter` | High-quality heterozygous call; ClinVar P/LP; predicted NMD |
-| 2 | `chr15:40220612 T>G` | `NM_001211.6:c.3006T>G`, `p.Asn1002Lys` | High-quality heterozygous call; gnomAD v4 exomes AC=1 / AN=1,461,878 (AF 6.8e-07), absent from gnomAD genomes; exact allele is unclassified |
+| 2 | `chr15:40220612 T>G` | `NM_001211.6:c.3006T>G`, `p.Asn1002Lys` | High-quality heterozygous call; gnomAD v4 exomes AC=1 / AN=1,461,878 (AF 6.8e-07), absent from gnomAD genomes; exact allele unclassified |
 
-The alleles are 10,911 bp apart. Short reads do not establish phase and parental
-data were not supplied, so **in trans is inferred, not proven**. The second
-allele remains a VUS in isolation until segregation or functional evidence is
-available.
+Both variants were independently confirmed from all eight raw FASTQ lanes by
+exact 31-mer counting, without using the supplied variant caller. They are
+10,911 bp apart. Short reads do not establish phase and parental data were not
+supplied, so **in trans is inferred, not proven**. The second allele remains a
+VUS in isolation until segregation or functional evidence is available.
 
 The ready-to-upload Track 1 file is
 [`results/MarxistLeninist_bub1b_compound_het.csv`](results/MarxistLeninist_bub1b_compound_het.csv).
 
-## Track 2 concept
+## One canonical Track 2 submission
 
-The proposal is an experimentally gated, three-axis screen:
+The source of truth is [`competition/CANONICAL.json`](competition/CANONICAL.json),
+currently version `2026-08-30.4`. Every human or agent must read that manifest
+and [`competition/coordination/AGENT_PROTOCOL.md`](competition/coordination/AGENT_PROTOCOL.md)
+before editing competition material.
 
-- **Read through the nonsense allele:** azithromycin is the exposure-bridged
-  first screen, with gentamicin as a stronger but substantially more toxic
-  mechanistic comparator. The exact BUB1B context is `UGA-A`; it must be tested
-  directly because NMD, the +4 base, and the identity of the inserted amino acid
-  may sharply limit functional rescue.
-- **Stabilize the missense allele:** arimoclomol is FDA-approved for NPC and
-  amplifies a stress-induced heat-shock response. This is an indirect bridge,
-  not evidence that it rescues `p.Asn1002Lys`.
-- **Test an orthogonal abundance pathway:** prescription nicotinic acid is an
-  approved NAD precursor, while NMN/SIRT2 increased BUBR1 abundance in mice.
-  Niacin is not NMN, so this remains a biomarker-gated comparator.
-- **Buffer downstream proteotoxic stress:** sirolimus (rapamycin) is the only
-  approved candidate in the shortlist with drug-level rescue in a 2026 fly
-  model of SAC-loss MVA-like microcephaly. It does not repair chromosome
-  segregation and carries major immunosuppression and cancer-risk caveats.
+There is exactly one editable Track 2 report:
 
-Candidates advance only if they restore BUBR1 abundance or checkpoint function,
-reduce *new* chromosome-segregation errors, work near approved human exposure,
-and do not preferentially preserve premalignant aneuploid cells.
+`reports/MarxistLeninist_track2_report.md`
+
+The PDF is generated from that Markdown source. Addenda and older pitch scripts
+are supporting or historical files, not alternate reports. `make check` fails if
+someone creates another filename resembling a Track 2 report. Apparently the
+robots did, eventually, learn not to produce `final_v3_really_final.md`.
+
+## Track 2 conclusion
+
+No approved medicine currently has evidence sufficient to justify administration
+for this child's MVA. The proposal is therefore a **ranked ex vivo rescue screen**,
+not an empirical cocktail:
+
+1. **Azithromycin - priority allele-directed screen.** Test the exact `UGA-A`
+   context of `p.Leu737Ter`, then require full-length stop-allele BUBR1, an
+   identified residue-737 peptide, and functional checkpoint/segregation rescue
+   near exposure achieved in approved use.
+2. **Arimoclomol - conditional missense-stabilisation probe.** Do not screen it
+   until `p.Asn1002Lys` is shown to be unstable, chaperone-responsive, and still
+   functionally recoverable. No published experiment shows arimoclomol rescues
+   BUBR1.
+3. **Sirolimus - downstream autophagy benchmark only.** Rapamycin partially
+   rescued neural-stem-cell number in a 2026 fly SAC-loss model, but did not
+   restore progeny or brain size and carries major immunosuppression concerns.
+4. **Acetylcysteine - biomarker-gated redox comparator.** It enters only if
+   patient cells first show a reproducible mitochondrial/redox abnormality; it
+   was not tested in the MVA-like fly study.
+5. **Gentamicin - laboratory readthrough control only.** Its renal and auditory
+   toxicity make it unsuitable as an empirical chronic treatment proposal.
+
+Candidates advance only if they show the intended molecular target engagement,
+reduce **new** chromosome-segregation errors, work within a predefined human-
+exposure ceiling, and do not preferentially preserve premalignant aneuploid
+clones.
+
+## Important uncertainty correction
+
+Published inducible-cell experiments reported a steep BUBR1 response around
+approximately 6% versus 13% residual abundance. The earlier repository converted
+this into a child-specific 5-10% estimate and a 1.3-2.6-fold rescue target. Those
+numbers are now explicitly labelled as **scenario analysis**, not measurements
+from this child. The real threshold must be set from patient-cell BUBR1 abundance,
+corrected isogenic controls, and functional response.
+
+## Current Track 2 candidate artifacts
+
+Canonical version `2026-08-30.4` contains a newly built report and pitch video.
+They are candidates for a later authorized submission update and remain
+**built but unreviewed**:
+
+- `competition/artifacts/MarxistLeninist_track2_report.pdf`
+  - SHA-256 `dc28529b02535edc7cfabdd6f6478ce3724d246a4d8786343b4079b2754444c8`
+- `competition/artifacts/MarxistLeninist_track2_pitch.mp4`
+  - 177.267 seconds
+  - 1920x1080 H.264, AAC 48 kHz
+  - SHA-256 `ccf6b4f8be2845ab28197316bb3ab9150b088e7b46c5d79e85c6aaf139d74db2`
+
+Before another submission, both exact artifacts must be reviewed, the current
+video must be hosted and watched after platform processing, the AI
+data-handling disclosure must be verified, and the participant must explicitly
+authorize use of a remaining slot.
+
+## Track 2 submission history
+
+Submission 1 was received and is preserved under
+`competition/history/submission-01/`. Its exact supplied report and pitch are
+historical and do not overwrite the current canonical v4 artifacts.
+
+The form permits three Track 2 submissions. One has been used, **two remain**,
+and the judging panel reviews only the latest entry. The Submission 1 YouTube
+URL is historical; it is not the hosting URL for the current canonical video.
+No later submission is authorized by this repository.
+
+## Dedicated SG competition MCP
+
+The competition-specific `SG MVA Hackathon 2026` MCP is deployed and verified
+on SG1 and SG2 with identical 12-tool surfaces. The artifact-specific
+`mva_report` and `mva_video` tools are strictly read-only and expose the
+canonical artifacts, Submission 1 archive and remaining quota.
+
+GitHub PR #1 and issue #2 remain the shared workboard. SG1 is the single
+coordination writer and SG2 is a fenced standby, preventing node-local claims
+from diverging. The MCP deliberately has no Hackathon submission capability.
 
 ## Reproduce public checks
 
-Python 3.11+ is sufficient; no patient data or third-party package is required.
+Python 3.11+ is sufficient for the public, synthetic checks; no gated patient
+data are required.
 
 ```bash
 make check
@@ -67,12 +138,20 @@ the Track 2 report. Structural output is explicitly hypothesis-generating.
 
 ## Repository map
 
+- `competition/CANONICAL.json` - machine-readable source of truth
+- `competition/artifacts/` - current candidate PDF and MP4
+- `competition/history/` - immutable prior-submission receipts and supplied artifacts
+- `competition/review/` - contact sheet, captions and build evidence
+- `competition/coordination/` - mandatory multi-agent protocol
 - `reports/MarxistLeninist_track1_report.md` - variant analysis and limitations
-- `reports/MarxistLeninist_track2_report.md` - drug rationale and validation plan
-- `reports/pitch_script.md` - approximately three-minute narration
-- `SUBMISSION_CHECKLIST.md` - exact form fields and action-time safety gates
+- `reports/MarxistLeninist_track2_report.md` - the only canonical Track 2 report source
+- `methods/MarxistLeninist_track2_methods_update_20260830.md` - methods/disclosure update
+- `reports/pitch_script_track2_revised_20260830.md` - canonical report-aligned pitch source
+- `reports/pitch_script_3min_opus5.md` - superseded historical pitch source
+- `pipeline/competition_video/` - deterministic report and video builders
+- `SUBMISSION_CHECKLIST.md` - current form fields and action-time safety gates
 - `results/` - submission CSV and public evidence/provenance records
-- `scripts/` - submission validator, privacy gate, and reproducible context checks
+- `scripts/` - submission, privacy and canonical-manifest validators
 - `tests/` - synthetic/unit tests only
 - `DATA_GOVERNANCE.md` - release boundary and privacy safeguards
 
@@ -82,6 +161,8 @@ The gated genome, phenotype document, read evidence, sample-wide annotations,
 and intermediate files are deliberately absent. The repository publishes only
 the minimum derived facts needed for the competition. Run `make privacy` before
 every public commit.
+
+The controlled data source is the gated Hugging Face dataset `SageBio/mva-hackathon-2026-data`, accessed 30 August 2026.
 
 ## Acknowledgement
 

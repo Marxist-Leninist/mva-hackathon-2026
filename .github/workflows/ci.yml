@@ -3,6 +3,7 @@ name: public-release-checks
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -16,4 +17,3 @@ jobs:
         with:
           python-version: "3.11"
       - run: make check
-
