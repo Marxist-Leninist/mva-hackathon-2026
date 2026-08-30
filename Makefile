@@ -1,8 +1,8 @@
-.PHONY: check test validate privacy
+.PHONY: check test validate privacy competition
 
 PYTHON ?= python3
 
-check: test validate privacy
+check: test validate privacy competition
 
 test:
 	$(PYTHON) -m unittest discover -s tests -v
@@ -12,3 +12,6 @@ validate:
 
 privacy:
 	$(PYTHON) scripts/privacy_gate.py .
+
+competition:
+	$(PYTHON) scripts/validate_competition_manifest.py
