@@ -34,7 +34,8 @@ Before submitting Track 1:
 - Team / display name: `MarxistLeninist`
 - GitHub repository: `https://github.com/Marxist-Leninist/mva-hackathon-2026`
 - Report file: `reports/MarxistLeninist_track2_report.md`
-- Pitch-video URL: **pending YouTube or Vimeo upload**
+- Canonical pitch source: `reports/pitch_script_track2_revised_20260830.md`
+- Pitch-video URL: **pending rebuilt YouTube or Vimeo upload**
 - Notes for judges: use the reviewed text below
 
 ### Current live-form rule
@@ -50,8 +51,8 @@ submission rule is obsolete.
 - [ ] Confirm the exact provider plan/tier used for each AI assistant.
 - [ ] Confirm and record the relevant account-level training/retention/data-
       handling setting that applied during each AI-assisted session.
-- [ ] Upload the final 179-second pitch video to YouTube or Vimeo and record the
-      stable URL.
+- [ ] Rebuild the pitch video from the revised script, upload it to YouTube or
+      Vimeo, and record the stable URL.
 
 Do not guess or write a generic "no training" statement without verifying the
 actual account setting.
@@ -73,19 +74,24 @@ actual account setting.
 - [ ] Confirm every cited 2026 source and current medicine label remains accurate
       on the submission date.
 
-### Video freeze checks
+### Pitch status and rebuild checks
 
-- [x] Runtime below three minutes: approximately 179 seconds.
-- [x] 1920x1080 H.264 video and AAC audio.
-- [x] Burned-in captions generated from the corrected narration source.
-- [x] Corrected gnomAD wording: one allele in 1,461,878 exome alleles, not
-      "absent from gnomAD".
-- [x] Corrected phase wording: candidate biallelic, not proven compound
-      heterozygosity.
-- [x] Corrected mechanism wording: predicted hypomorph/instability, not an
-      established property of `p.Asn1002Lys`.
-- [ ] Upload and watch the hosted copy from beginning to end after platform
-      processing.
+The historical 179-second MP4 is technically valid but **superseded**. It
+predates the final report reconciliation, treats the child-specific BUBR1 dosage
+scenario as though measured, and includes an oncology section not supported by
+the revised report. Do not upload it as the final pitch.
+
+- [x] Revised report-aligned pitch script written.
+- [x] Revised script says phase is unproven and `p.Asn1002Lys` is a VUS.
+- [x] Revised script removes the unmeasured child-specific 5-10% claim.
+- [x] Revised script removes the previous vincristine treatment implication.
+- [ ] Regenerate TTS narration from the revised script.
+- [ ] Regenerate slides and burned-in captions from the same source of truth.
+- [ ] Rebuild to no more than 180 seconds at 1920x1080 H.264 with AAC audio.
+- [ ] Measure integrated loudness/true peak and verify full decode.
+- [ ] Inspect one frame from every slide and compare narration against captions.
+- [ ] Watch the rebuilt local MP4 from beginning to end.
+- [ ] Upload to YouTube or Vimeo and watch the hosted copy after processing.
 
 ### Suggested notes for judges
 
@@ -104,8 +110,8 @@ actual account setting.
 Immediately before submission:
 
 1. Re-open the live Track 2 form and confirm the quota and fields.
-2. Compare the default-branch report, methods material, and video against the
-   reviewed versions.
+2. Compare the default-branch report, methods material, and rebuilt video against
+   the reviewed versions.
 3. Confirm the hosted video URL is accessible without login.
 4. Confirm the AI disclosure and Synapse citation are complete.
 5. Obtain the participant's explicit instruction to use a submission slot.
