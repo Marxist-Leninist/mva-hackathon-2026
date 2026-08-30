@@ -111,7 +111,7 @@ jobs:
           report['sha256'] = sha(report['path'])
           video['status'] = 'built_unreviewed'
           video['sha256'] = sha(video['path'])
-          data['canonical_version'] = '2026-08-30.3'
+          data['canonical_version'] = '2026-08-30.4'
           manifest_path.write_text(json.dumps(data, indent=2) + '\n')
           print('report', report['sha256'])
           print('video ', video['sha256'])

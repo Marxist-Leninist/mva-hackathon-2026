@@ -105,25 +105,6 @@ verifying those settings.""",
 
 def update_readme() -> None:
     text = README.read_text(encoding="utf-8")
-    text = replace_once(
-        text,
-        """The remaining participant-controlled requirements are:
-
-- confirm the exact provider plan/tier and account-level data-handling setting
-  for every AI assistant used;
-- insert the exact Synapse dataset citation;
-- host the reviewed MP4 on YouTube or Vimeo; and
-- explicitly authorize the exact canonical version before a submission slot is
-  used.""",
-        """The remaining participant-controlled requirements are:
-
-- confirm the exact account-level training, retention and data-handling settings
-  that applied to the OpenAI ChatGPT Pro and Anthropic Claude Max 20x sessions;
-- host the reviewed MP4 on YouTube or Vimeo; and
-- explicitly authorize the exact canonical version before a submission slot is
-  used.""",
-        "README remaining requirements",
-    )
     citation = (
         "\n\nThe controlled data source is the gated Hugging Face dataset "
         "`SageBio/mva-hackathon-2026-data`, accessed 30 August 2026."
@@ -133,8 +114,9 @@ def update_readme() -> None:
         if text.count(anchor) != 1:
             raise RuntimeError("README data-boundary anchor missing or duplicated")
         text = text.replace(anchor, anchor + citation, 1)
+    if "insert the exact Synapse dataset citation" in text:
+        raise RuntimeError("README still contains the obsolete Synapse placeholder")
     write_text(README, text)
-
 
 def update_checklist() -> None:
     text = CHECKLIST.read_text(encoding="utf-8")
@@ -173,10 +155,6 @@ def update_status_and_manifest() -> None:
         "SageBio/mva-hackathon-2026-data on Hugging Face; gated; accessed "
         "30 August 2026"
     )
-    status["release"]["track2_hackathon_submission"] = (
-        "not submitted; hosted video, verified AI account-level settings and "
-        "explicit authorization remain"
-    )
     STATUS.write_text(json.dumps(status, indent=2) + "\n", encoding="utf-8")
     print(f"updated {STATUS.relative_to(ROOT)}")
 
@@ -185,11 +163,8 @@ def update_status_and_manifest() -> None:
     report_spec = manifest["track2"]["report_markdown"]
     report_spec["status"] = "ready"
     report_spec["sha256"] = sha256(REPORT)
-    manifest["open_blockers"] = [
-        "Confirm exact account-level training, retention and data-control settings for OpenAI and Anthropic sessions",
-        "Upload final video to YouTube or Vimeo",
-        "Obtain explicit participant authorization before using a submission slot",
-    ]
+    # Submission history, quota, SG deployment state and review blockers are
+    # authoritative manifest data. Do not replace them during artifact rebuilds.
     MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print(f"updated {MANIFEST.relative_to(ROOT)}")
     print(f"report markdown sha256={report_spec['sha256']}")
